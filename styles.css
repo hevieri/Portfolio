@@ -1,0 +1,326 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: #f4f4f4;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background: #333;
+    color: white;
+}
+
+/* Botón de modo oscuro */
+#dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+
+/* Menú */
+#menu {
+    position: sticky;
+    top: 0;
+    background: #444;
+    padding: 10px;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Secciones */
+section {
+    padding: 20px;
+}
+
+/* Habilidades */
+.habilidades-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.habilidad img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Proyectos */
+.proyectos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.proyecto {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.proyecto:hover {
+    transform: scale(1.05);
+}
+
+.dark-mode .proyecto {
+    background: #444;
+    color: white;
+}
+
+/* Texto oculto */
+.hidden {
+    display: none;
+}
+
+/* Botones */
+button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .habilidades-grid {
+        justify-content: center;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+}
+
+
+.filtros {
+    margin: 20px 0;
+}
+
+.filtro-btn {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.filtro-btn:hover, .filtro-btn.activo {
+    background: #007BFF;
+}
+
+.habilidad {
+    display: none; /* Ocultas todas por defecto, luego el JS las muestra */
+}
+
+
+.botones-sobre-mi {
+  margin: 15px 0;
+}
+
+.btn-sobre-mi {
+  margin: 0 5px;
+  padding: 8px 16px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-sobre-mi:hover {
+  background: #666;
+}
+
+.seccion-sobre-mi {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#rasgos-generales {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+#rasgos-generales h3 {
+  margin-bottom: 10px;
+}
+
+
+.botones-sobre-mi {
+  margin-top: 15px;
+}
+
+.botones-sobre-mi button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.botones-sobre-mi button:hover {
+  background-color: #0056b3;
+}
+
+.cuadricula-rasgos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 15px; /* Espacio entre los cuadros */
+  margin-top: 15px;
+}
+
+.cuadro {
+  background-color: #f0f0f0; /* Color claro por defecto */
+  color: #333;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🌓 Modo oscuro */
+body.dark-mode .cuadro {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+/* 📱 Responsive: 1 columna en pantallas chicas */
+@media (max-width: 600px) {
+  .cuadricula-rasgos {
+    grid-template-columns: 1fr;
+  }
+}
+.cuadricula-ingles {
+  display: grid;
+  grid-template-columns: 1fr; /* Solo un cuadro, ocupa toda la fila */
+  gap: 15px;
+  margin: 30px 0 20px 0; /* Espacio arriba y abajo */
+  justify-items: center; /* Centra horizontalmente el cuadro */
+}
+
+.cuadricula-ingles .cuadro {
+  max-width: 300px; /* Para que no sea tan ancho */
+}
+
+#rasgos-generales {
+  margin-bottom: 60px; /* o el valor que te guste para la distancia */
+}
+
+  /* Estilo para el botón activo, ajustá como quieras */
+  .btn-sobre-mi.activo {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe57;
+  cursor: pointer;
+}
+
+.whatsapp-float svg {
+  fill: white;
+  width: 32px;
+  height: 32px;
+  display: block; /* Esto ayuda a evitar espacios extra */
+}
+.footer-email {
+  margin-top: 0.5rem;  /* separación */
+  font-size: 0.9rem;
+  color: #ccc;         /* un gris claro */
+  text-align: center;  /* centrado */
+}

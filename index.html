@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Erika Helfenstern</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Erika Helfenstern</h1>
+        <p>Diseñadora Gráfica Digital | Desarrollo Web | Marketing</p>
+        <button id="dark-mode-toggle" aria-label="Alternar modo oscuro">🌙</button>
+    </header>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sobre-mi">
+  <h2>Sobre mí</h2>
+<!-- Bloque nuevo con rasgos generales -->
+  <div id="rasgos-generales" class="rasgos-generales">
+
+    <h3>Rasgos Generales</h3>
+    <p>Soy una persona curiosa, siempre quiero aprender más. Si surge un problema busco la manera de solucionarlo. 
+        <br>Me gusta trabajar sola, pero soy bastante colaborativa, disfruto más haciendolo en equipo porque me gusta ayudar a los demás y ayudarlos a encontrar su fuerte.
+    <br>Utilizo sin problemas la Inteligencia Artificial y la Redacción, siento que son herramientas que no pueden faltar en un perfil. </p>
+    <div class="cuadricula-rasgos">
+  <div class="cuadro">Organización</div>
+  <div class="cuadro">Trabajo en Equipo</div>
+  <div class="cuadro">Facilidad para aprender cosas nuevas.</div>
+  <div class="cuadro">Resolución de problemas</div>
+</div>
+
+
+  </div>
+  <div class="botones-sobre-mi">
+    <button class="btn-sobre-mi" data-seccion="educacion">Educación</button>
+    <button class="btn-sobre-mi" data-seccion="experiencia">Experiencia</button>
+    <button class="btn-sobre-mi" data-seccion="certificaciones">Cursos</button>
+  </div>
+
+  <div class="contenido-sobre-mi">
+    <div class="seccion-sobre-mi hidden" id="educacion">
+      <p><strong>Diseñadora Gráfica Digital</strong> - ORT Argentina 2022-2024<br>Título técnico con enfoque en Diseño Gráfico, Marketing y Desarrollo Web.</p>
+      <p><strong>Periodismo</strong> - Universidad Abierta Interamericana 2015-2017<br>Hábilidades en Comunicación, Redacción, Audiovisuales y Multimedia.</p>
+    </div>
+    <div class="seccion-sobre-mi hidden" id="experiencia">
+        <p><strong>Freelancer 2025</strong> - Desarrollo de sitios web y piezas gráficas.<br>Experiencia en diseño UX/UI y marketing digital.</p>
+        <p><strong>Activo Center 2022</strong> - Ventas, Retenciones, Administración<br> CRM Citrix, Saleforce Lightning.</p>
+      <p><strong>Proyecto estudiantil</strong> - El Rincón del Friki, Mantenimiento general del sitio:<br> Subida de contenido diario. Edición de piezas gráficas y contenido. SEO, Google Ads. Campaña por redes sociales.</p>
+    </div>
+    <div class="seccion-sobre-mi hidden" id="certificaciones">
+    <p><strong>Coderhouse</strong><br>- Photoshop e Ilustrator 2023</p>
+    <p><strong>Educacion IT</strong><br>- Desarrollo Web con HTML 2022 <br>- Maquetador Web Avanzado 2022 <br>- Wordpress 2022 <br>- Javascript desde cero 2022<br>- Programación Web en PHP y MySQL 2024</p>
+      <p><strong>Crehana</strong><br>- Introduccion al Desarrollo Web Front End: HTML y CSS desde cero 2022</p>
+      <p><strong>Instituto Superior de Letras Eduardo Mallea</strong><br>- Curso de Capacitación, Actualización y Perfeccionamiento Técnico-Profesional. 2017</p>
+       
+    </div>
+  </div>
+</section>
+
+
+
+
+       <section id="habilidades">
+    <h2>Habilidades Técnicas</h2>
+
+    <div class="filtros">
+        <button class="filtro-btn" data-categoria="web">Diseño Web</button>
+        <button class="filtro-btn" data-categoria="marketing">Marketing</button>
+        <button class="filtro-btn" data-categoria="grafico">Diseño Gráfico</button>
+    </div>
+
+    <div class="habilidades-grid" id="habilidades-grid">
+        <!-- Diseño Web -->
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+        </div>
+        <div class="habilidad web">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+        </div>
+
+        <!-- Marketing -->
+        <div class="habilidad marketing">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress">
+        </div>
+
+        <!-- Diseño Gráfico -->
+        <div class="habilidad grafico">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">
+        </div>
+        <div class="habilidad grafico">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+        </div>
+        <div class="habilidad grafico">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg" alt="After Effects">
+        </div>
+        <div class="habilidad grafico">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro">
+        </div>
+    </div>
+</section>
+
+<div class="cuadricula-ingles">
+  <div class="cuadro">Nivel de inglés intermedio B1</div>
+</div>
+
+        <section id="proyectos" class="p-4">
+  <h2 class="text-2xl font-bold mb-4">Proyectos</h2>
+
+  <div class="flex gap-2 mb-4">
+    <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="todos">Todos</button>
+    <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="web">Diseño Web</button>
+    <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="marketing">Marketing</button>
+    <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="multimedia">Multimedia</button>
+     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="grafico">Diseño Gráfico</button>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 proyectos-container">
+    <!-- Proyecto Web -->
+    <div class="proyecto web border p-4 rounded shadow">
+      <img src="https://via.placeholder.com/300x200?text=Portfolio+Web" alt="Miniatura Proyecto Web" class="mb-2">
+      <h3 class="font-semibold">Portfolio Web</h3>
+      <p class="text-sm mb-2">Sitio responsive hecho con HTML, CSS y JavaScript.</p>
+      <a href="https://github.com/usuario/proyecto1" target="_blank" class="text-blue-600 underline">Ver en GitHub</a>
+    </div>
+
+    <!-- Proyecto Gráfico -->
+    <div class="proyecto grafico border p-4 rounded shadow">
+      <img src="https://via.placeholder.com/300x200?text=Poster+Diseño" alt="Miniatura Proyecto Gráfico" class="mb-2">
+      <h3 class="font-semibold">Póster Publicitario</h3>
+      <p class="text-sm mb-2">Diseño gráfico en Illustrator y Photoshop.</p>
+      <a href="https://www.behance.net/usuario/proyecto2" target="_blank" class="text-blue-600 underline">Ver en Behance</a>
+    </div>
+
+    <!-- Multimedia -->
+    <div class="proyecto multimedia border p-4 rounded shadow">
+      <img src="https://via.placeholder.com/300x200?text=Poster+Diseño" alt="Miniatura Multimedia" class="mb-2">
+      <h3 class="font-semibold">Póster Multimedia</h3>
+      <p class="text-sm mb-2">Diseño Multimedia</p>
+      <a href="https://www.behance.net/usuario/proyecto2" target="_blank" class="text-blue-600 underline">Ver en Youtube</a>
+    </div>
+
+    <!-- Proyecto Marketing -->
+    <div class="proyecto marketing border p-4 rounded shadow">
+      <img src="https://via.placeholder.com/300x200?text=Video+Promo" alt="Miniatura Proyecto Marketing" class="mb-2">
+      <h3 class="font-semibold">Video Campaña</h3>
+      <p class="text-sm mb-2">Editado con Premiere y After Effects.</p>
+      <a href="https://www.youtube.com/watch?v=XXXXX" target="_blank" class="text-blue-600 underline">Ver en YouTube</a>
+    </div>
+  </div>
+</section>
+
+<hr><br>
+
+    <footer>
+        <p>© 2025 Erika Helfenstern | 
+            <a href="https://www.linkedin.com/in/erika-helfenstern-89b9a9233/">LinkedIn</a> | 
+            <a href="https://github.com/hevieri">GitHub</a> | 
+            <a href="https://www.behance.net/akirehevieri">Behance</a> |
+            <a href="https://www.youtube.com/channel/UC_tIRNOf-mX9DN1ySJ9Dk6A">Youtube</a>
+        </p>
+         <p class="footer-email">
+  <a href="mailto:hevieri.dev@gmail.com" style="color: #ccc; text-decoration: none;">hevieri.dev@gmail.com</a>
+</p>
+
+    </footer>
+<!-- Botón WhatsApp fijo al costado -->
+<a href="https://wa.me/5491162178105" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
+    <path d="M20.52 3.48A11.82 11.82 0 0 0 12 0C5.37 0 0 5.37 0 12a11.83 11.83 0 0 0 1.93 6.15L0 24l5.98-1.92A11.92 11.92 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.26-6.22-3.48-8.52zm-8.49 16.03a8.38 8.38 0 0 1-4.26-1.18l-.3-.18-3.56 1.14 1.15-3.48-.19-.31a8.5 8.5 0 0 1-1.27-4.64c0-4.71 3.83-8.53 8.55-8.53a8.5 8.5 0 0 1 8.54 8.54c0 4.72-3.82 8.55-8.56 8.55zm4.58-5.94c-.25-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.57.12-.17.24-.66.81-.81.98-.15.17-.3.19-.55.07-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.39.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.07-.12-.57-1.38-.78-1.9-.2-.5-.41-.43-.57-.44-.15 0-.33 0-.5 0-.17 0-.44.06-.67.31-.23.25-.89.87-.89 2.12 0 1.25.91 2.46 1.03 2.62.12.17 1.78 2.72 4.31 3.81.6.26 1.07.41 1.44.52.6.18 1.15.15 1.58.09.48-.07 1.48-.6 1.69-1.18.21-.58.21-1.07.15-1.18-.07-.11-.24-.18-.5-.3z"/>
+  </svg>
+</a>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
