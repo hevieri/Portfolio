@@ -324,3 +324,78 @@ body.dark-mode .cuadro {
   color: #ccc;         /* un gris claro */
   text-align: center;  /* centrado */
 }
+
+
+
+#descripcionBloque {
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+#descripcionTexto {
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.habilidades-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.habilidad {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habilidad img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+
+
+
+.oculto {
+    display: none;
+}
+
+.categoria {
+    margin-top: 15px;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center; /* Centra los íconos */
+    gap: 15px; /* Espacio entre íconos */
+    flex-wrap: wrap; /* Evita que se desborden */
+    width: 100%; /* Asegura que ocupen todo el ancho del contenedor */
+    position: relative; /* Evita que se "salgan" del cuerpo */
+    z-index: 2; /* Asegura que estén por encima del fondo */
+}
+
+img {
+    width: 50px;
+}
+
+
+.detalle {
+  font-size: 16px;
+  color: #333;
+  font-weight: 400; /* menos negrita, normal */
+  max-width: 600px; /* ancho máximo para que no sea muy ancho */
+  margin: 10px auto 0 auto; /* margen arriba y centrado horizontalmente */
+  line-height: 1.6; /* para mejorar la lectura */
+  text-align: center; /* si querés que esté centrado */
+  font-family: Arial, sans-serif; /* una fuente legible */
+}
+
+
+// stilo
+

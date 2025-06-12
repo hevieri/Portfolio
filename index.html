@@ -66,62 +66,136 @@
   </div>
 </section>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades Técnicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <h2>Habilidades Técnicas</h2>
 
+    <!-- Botones principales -->
+    <button class="categoriaBtn" data-target="web">Diseño Web</button>
+    <button class="categoriaBtn" data-target="marketing">Marketing</button>
+    <button class="categoriaBtn" data-target="grafico">Diseño Gráfico</button>
+    <button class="categoriaBtn" data-target="multimedia">Multimedia</button>
+    <button class="categoriaBtn" data-target="utilidades">Utilidades</button>
 
+    <!-- Contenedor de información -->
+    <div id="web" class="categoria oculto">
+        <div class="iconos">
+            <img src="html-icon.png" alt="HTML">
+            <img src="css-icon.png" alt="CSS">
+        </div>
+        <button class="verMasBtn" data-target="info-web">Ver más</button>
+        <p id="info-web" class="detalle oculto">En 2021, tras familiarizarme con herramientas como WordPress y entender los fundamentos del marketing digital, comencé a formarme en desarrollo web:
 
-       <section id="habilidades">
-    <h2>Habilidades Técnicas</h2>
+<br>2021: Inicié con HTML y CSS para comprender la estructura y el diseño básico de páginas web.
 
-    <div class="filtros">
-        <button class="filtro-btn" data-categoria="web">Diseño Web</button>
-        <button class="filtro-btn" data-categoria="marketing">Marketing</button>
-        <button class="filtro-btn" data-categoria="grafico">Diseño Gráfico</button>
+Poco después incorporé Bootstrap para agilizar el desarrollo responsive.
+
+A continuación, profundicé en JavaScript y jQuery para añadir interactividad.
+
+Paralelamente, aprendí PHP y SQL, lo que me permitió comenzar a trabajar con desarrollo web dinámico y bases de datos.</p>
     </div>
 
-    <div class="habilidades-grid" id="habilidades-grid">
-        <!-- Diseño Web -->
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+    <div id="marketing" class="categoria oculto">
+        <div class="iconos">
+            <img src="wordpress-icon.png" alt="WordPress">
         </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-        </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
-        </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-        </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery">
-        </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-        </div>
-        <div class="habilidad web">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-        </div>
+        <button class="verMasBtn" data-target="info-marketing">Ver más</button>
+        <p id="info-marketing" class="detalle oculto">2013: Comencé a explorar el mundo de los blogs mediante plataformas como Blogger, Blogspot y otras similares. Desde el inicio me interesó tanto la parte visual (personalización de plantillas) como la redacción de contenidos.
 
-        <!-- Marketing -->
-        <div class="habilidad marketing">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress">
-        </div>
+<br>2015: Empecé a utilizar WordPress, lo que me permitió desarrollar sitios más completos y profesionales. Durante esta etapa también descubrí e incorporé herramientas asociadas al marketing digital, como:
 
-        <!-- Diseño Gráfico -->
-        <div class="habilidad grafico">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">
-        </div>
-        <div class="habilidad grafico">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
-        </div>
-        <div class="habilidad grafico">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg" alt="After Effects">
-        </div>
-        <div class="habilidad grafico">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro">
-        </div>
+SEO (optimización para buscadores),
+
+SEM (campañas pagas),
+
+Google Ads,
+
+Integración con redes sociales,
+
+Gestión de publicidades y analítica básica.
+
+Ese mismo año comencé la carrera de Periodismo, lo cual fortaleció mis habilidades de redacción, investigación y comunicación estratégica.</p>
     </div>
-</section>
+
+    <div id="grafico" class="categoria oculto">
+        <div class="iconos">
+            <img src="photoshop-icon.png" alt="Photoshop">
+            <img src="illustrator-icon.png" alt="Illustrator">
+        </div>
+        <button class="verMasBtn" data-target="info-grafico">Ver más</button>
+        <p id="info-grafico" class="detalle oculto">2022: Comencé la carrera de Diseño Gráfico Digital en ORT, donde adquirí conocimientos técnicos y estéticos. Me formé en herramientas fundamentales como:
+
+Adobe Photoshop, Illustrator y otras apps de Adobe,
+
+Figma para diseño UX/UI colaborativo,
+
+Canva para piezas rápidas y funcionales,
+
+Y otros recursos orientados a diseño editorial, identidad visual y experiencia de usuario.</p>
+    </div>
+
+    <div id="multimedia" class="categoria oculto">
+        <div class="iconos">
+            <img src="video-icon.png" alt="Edición de Video">
+            <img src="after-effects-icon.png" alt="After Effects">
+        </div>
+        <button class="verMasBtn" data-target="info-multimedia">Ver más</button>
+        <p id="info-multimedia" class="detalle oculto">Desde antes de 2015 realizaba edición de música y videos por hobby, explorando herramientas básicas y experimentando con contenido creativo. Sin embargo, fue a partir del inicio de la carrera de Periodismo que empecé a desarrollar estas habilidades de forma más técnica y profesional, adaptándolas a distintos formatos de comunicación digital.
+
+Durante esa etapa aprendí a trabajar con herramientas como:
+
+Adobe Premiere Pro y After Effects para edición de video profesional,
+
+Audacity y Adobe Audition para edición de audio y podcasts,
+
+CapCut, Filmora y otros editores rápidos para contenido en redes,
+
+Técnicas narrativas audiovisuales, montaje, subtitulado y compresión de archivos.
+
+Estas herramientas me permitieron producir piezas más pulidas, tanto para proyectos académicos como personales, enfocándome en la claridad del mensaje, la estética visual y la calidad del sonido.
+
+</p>
+    </div>
+        
+    <div id="utilidades" class="categoria oculto">
+        <div class="iconos">
+            <img src="microsoft-icon.png" alt="Microsoft Office">
+            <img src="notion-icon.png" alt="Notion">
+        </div>
+        <button class="verMasBtn" data-target="info-utilidades">Ver más</button>
+        <p id="info-utilidades" class="detalle oculto">Cuento con experiencia en la gestión administrativa de recursos tecnológicos y manejo de herramientas de productividad, que incluyen:
+
+Organización, control y mantenimiento de inventarios de hardware y software.
+
+Documentación y seguimiento de procesos técnicos y protocolos de soporte.
+
+Coordinación y asistencia a usuarios en el uso y mantenimiento de equipos y programas.
+
+Planificación y gestión básica de infraestructura informática para optimizar recursos.
+
+Manejo avanzado de Microsoft Office (Word, Excel, PowerPoint) y otras herramientas como Prixie para gestión y productividad.
+
+Integración de herramientas de inteligencia artificial para investigar, aprender y optimizar procesos técnicos y administrativos.
+
+<br>Complementariamente, poseo habilidades prácticas en hardware y mantenimiento, las cuales desarrollé de forma autónoma a través de la experimentación con varias computadoras propias y de conocidos:
+
+Armado completo de PC desde cero, incluyendo instalación de componentes y configuración de BIOS y sistemas operativos.
+
+Reemplazo y actualización de memoria RAM, discos duros/SSD, tarjetas de video y fuentes de alimentación.
+
+Mantenimiento básico de notebooks, como limpieza interna y ampliación de memoria o almacenamiento.
+
+Diagnóstico y solución de fallas comunes en hardware y software.
+
+Esta combinación me permite ofrecer un soporte integral, asegurando tanto la correcta administración de recursos tecnológicos como su adecuado funcionamiento y mantenimiento.</div>
+        
 
 <div class="cuadricula-ingles">
   <div class="cuadro">Nivel de inglés intermedio B1</div>

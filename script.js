@@ -99,3 +99,105 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(primerId).classList.remove('hidden');
   }
 });
+
+
+// boton ver mas y ver menos
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll(".filtro-btn");
+  const verMasBtn = document.getElementById("verMasBtn");
+  const descripcionBloque = document.getElementById("descripcionBloque");
+  const descripcionTexto = document.getElementById("descripcionTexto");
+
+  // Textos para cada categoría
+  const descripciones = {
+    web: "Como desarrollador web, manejo HTML, CSS, JavaScript, PHP, MySQL y frameworks como Bootstrap y jQuery.",
+    marketing: "Experiencia en WordPress y marketing digital, gestionando contenido y campañas efectivas.",
+    grafico: "Diseño profesional con Illustrator, Photoshop, After Effects y Premiere Pro."
+  };
+
+  let categoriaActual = null;
+  let descripcionVisible = false;
+
+  // Cuando se hace click en un botón de categoría
+  botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const cat = boton.getAttribute("data-categoria");
+      categoriaActual = cat;
+
+      // Mostrar el texto de la categoría y abrir automáticamente descripción
+      descripcionTexto.textContent = descripciones[cat] || "";
+      descripcionTexto.classList.remove("opacity-0");
+      descripcionTexto.classList.add("opacity-100");
+
+      descripcionBloque.style.maxHeight = "10rem";  // ajusta según el texto
+      descripcionVisible = true;
+      verMasBtn.textContent = "Ver menos";
+    });
+  });
+
+
+
+
+  // Toggle al botón Ver más / Ver menos
+  verMasBtn.addEventListener("click", () => {
+    if (!categoriaActual) return; // no hacer nada si no hay categoría seleccionada
+
+    if (descripcionVisible) {
+      // Ocultar
+      descripcionBloque.style.maxHeight = "0";
+      descripcionTexto.classList.remove("opacity-100");
+      descripcionTexto.classList.add("opacity-0");
+      verMasBtn.textContent = "Ver más";
+      descripcionVisible = false;
+    } else {
+      // Mostrar
+      descripcionTexto.textContent = descripciones[categoriaActual];
+      descripcionTexto.classList.remove("opacity-0");
+      descripcionTexto.classList.add("opacity-100");
+      descripcionBloque.style.maxHeight = "10rem";
+      verMasBtn.textContent = "Ver menos";
+      descripcionVisible = true;
+    }
+  });
+});
+
+
+//
+
+const botones = document.querySelectorAll(".toggleBtn");
+
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const contenido = document.getElementById(boton.dataset.target);
+        
+        contenido.classList.toggle("oculto");
+
+        boton.textContent = contenido.classList.contains("oculto") ? "Ver más" : "Ver menos";
+    });
+});
+
+
+// nuevo codigo ver mas y ver menos
+const categoriaBotones = document.querySelectorAll(".categoriaBtn");
+const verMasBotones = document.querySelectorAll(".verMasBtn");
+const categorias = document.querySelectorAll(".categoria");
+
+categoriaBotones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        // Ocultar todas las categorías antes de mostrar la nueva
+        categorias.forEach(cat => cat.classList.add("oculto"));
+
+        // Mostrar la categoría correspondiente
+        const contenido = document.getElementById(boton.dataset.target);
+        contenido.classList.remove("oculto");
+    });
+});
+
+verMasBotones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const detalle = document.getElementById(boton.dataset.target);
+        detalle.classList.toggle("oculto");
+
+        boton.textContent = detalle.classList.contains("oculto") ? "Ver más" : "Ver menos";
+    });
+});
