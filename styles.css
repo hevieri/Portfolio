@@ -7,16 +7,19 @@ body {
     background: #f4f4f4;
     color: #333;
     transition: background 0.3s, color 0.3s;
-    background-image: linear-gradient(
-    0deg,
-    hsla(0, 0%, 100%, 0) 0%,
-    hsl(189, 100%, 50%) 40%,
-    hsl(189, 100%, 50%) 60%,
-    hsla(0, 0%, 40%, 0) 100%
-  );
-  color: white;
   
   
+  
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    /* Quitá el background-image */
+}
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 .dark-mode {
@@ -27,11 +30,13 @@ body {
 /* Botón de modo oscuro */
 header {
     
-    position: relative; /* Mantiene todo en su lugar */        
+     display: flex;
+    flex-direction: column; /* Ubica los elementos en columna */  
     align-items: center; /* Centra verticalmente */
     padding: 10px; /* Espaciado interno */
     
 }
+
 
 #dark-mode-toggle {
     position: absolute;
@@ -134,21 +139,6 @@ button:hover {
     background: #555;
 }
 
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    padding: 20px;
-}
-
-footer a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
 
 /* Responsivo */
 @media screen and (max-width: 768px) {
@@ -193,25 +183,6 @@ footer a:hover {
 
 .habilidad {
     display: none; /* Ocultas todas por defecto, luego el JS las muestra */
-}
-
-
-.botones-sobre-mi {
-  margin: 15px 0;
-}
-
-.btn-sobre-mi {
-  margin: 0 5px;
-  padding: 8px 16px;
-  background: #444;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-sobre-mi:hover {
-  background: #666;
 }
 
 .seccion-sobre-mi {
@@ -451,4 +422,317 @@ img {
 
 .shake {
   animation: shake 0.4s ease-in-out;
+}
+
+/*Sombras elegantes*/
+.proyecto {
+    border: 1px solid #eee; /* Un borde sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra más suave */
+}
+.dark-mode .proyecto {
+    border: 1px solid #555;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cuadro { /* Para los rasgos generales */
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+.dark-mode .cuadro {
+    border: 1px solid #555;
+}
+
+nav ul li a:hover,
+.btn-sobre-mi.activo,
+.filtro-proyecto-btn.activo {
+    background-color: hsl(189, 100%, 35%); /* Una versión un poco más oscura para el hover */
+}
+nav ul li a {
+    color: #e0e0e0; /* Blanco roto para los enlaces del menú */
+}
+nav ul li a:hover {
+    color: hsl(189, 100%, 50%); /* Color de acento para el hover */
+}
+.proyecto a { /* Para los enlaces de GitHub/Behance en proyectos */
+    color: hsl(189, 100%, 50%);
+}
+.whatsapp-float {
+    background-color: hsl(189, 100%, 50%); /* O el verde WhatsApp original si preferís */
+}
+main {
+    max-width: 1000px; /* Ancho máximo para el contenido principal */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 20px; /* Espaciado interno general */
+}
+section {
+    padding: 40px 20px; /* Más padding para separar secciones */
+}
+h1, h2, h3 {
+    margin-bottom: 25px; /* Espacio debajo de los títulos */
+}
+p {
+    line-height: 1.7; /* Mayor interlineado para mejor lectura */
+    margin-bottom: 1em; /* Espacio entre párrafos */
+}
+body.dark-mode .iconos img {
+    filter: invert(1); /* Invierte los colores de las imágenes si son oscuras en fondo claro */
+}
+
+/* Footer */
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    /* Remover text-align: center; de aquí si lo tienes */
+    display: flex; /* Hacemos el footer un contenedor flex */
+    flex-direction: column; /* Apilamos los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente si hay espacio */
+    position: relative; /* Necesario para posicionar el email si lo quieres aparte */
+}
+
+footer p {
+    margin: 5px 0; /* Un poco de margen entre los párrafos del footer */
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-email {
+    /* Si quieres el email justo debajo del texto principal y centrado: */
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+    /* text-align: center; Esto ya no es necesario si el padre es flex con align-items: center */
+    width: 100%; /* Asegura que ocupe todo el ancho para centrar su propio texto */
+}
+
+/* Si quisieras posicionar el email ABSOLUTO como el dark mode toggle, sería así: */
+/*
+.footer-email {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+*/
+
+/* Línea horizontal (HR) */
+hr {
+    border: none; /* Quita el borde por defecto */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Una línea sutil y blanca */
+    margin: 40px auto; /* Centra la línea y dale espacio arriba y abajo */
+    width: 80%; /* Ancho de la línea */
+    max-width: 800px; /* Ancho máximo para que no sea muy larga */
+}
+
+/* En modo oscuro, ajustamos la línea */
+body.dark-mode hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.2); /* En modo oscuro, puede ser más oscura */
+}
+
+/* Consideraciones para el header (si quieres que sea un poco más controlado) */
+header {
+    /* Tu CSS actual para header es bueno. */
+    /* Si quieres que el H1 del header se vea más grande o con un estilo particular */
+    /* ya lo puedes manejar desde h1 en el CSS general o aquí si es específico de header */
+    padding: 20px 10px; /* Ajusta el padding si lo necesitas */
+    display: flex; /* Lo convierto a flex para mejor control */
+    justify-content: center; /* Centra el contenido principal (h1) */
+    align-items: center; /* Centra verticalmente */
+    position: relative; /* Mantiene la posición del botón */
+}
+
+header h1 {
+    margin: 0; /* Remueve el margen por defecto del h1 para centrarlo con flex */
+}
+
+/* Si quieres que el botón de dark mode se adapte mejor en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    #dark-mode-toggle {
+        /* Para pantallas pequeñas, podrías moverlo o reducir su tamaño */
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+    }
+
+    footer {
+        padding: 15px; /* Menos padding en móviles */
+    }
+
+    hr {
+        width: 90%; /* Más ancho en móviles */
+    }
+}
+
+/* botones stilos*/
+
+:root {
+    --primary-blue: #007BFF; /* Un azul vibrante */
+    --primary-green: #25D366; /* El verde de WhatsApp */
+    --button-default-light-bg: #eee;
+    --button-default-dark-text: #333;
+    --button-default-dark-bg: #444;
+    --button-default-light-text: #f0f0f0;
+}
+
+body.dark-mode {
+    /* Tu CSS de dark-mode actual */
+    background: #333;
+    color: white;
+}
+
+
+/* botones stilos*/
+/* boton*/
+:root {
+    --primary-blue: #007BFF; /* Un azul vibrante */
+    --primary-green: #25D366; /* El verde de WhatsApp */
+    --button-default-light-bg: #eee;
+    --button-default-dark-text: #333;
+    --button-default-dark-bg: #444;
+    --button-default-light-text: #f0f0f0;
+
+    /* Nuevas variables para estandarizar el estilo de los botones */
+    --button-padding: 10px 22px; /* Padding uniforme */
+    --button-font-size: 0.95rem; /* Tamaño de fuente uniforme */
+    --button-border-radius: 20px; /* Bordes muy redondeados para todos */
+    --button-border-width: 1px; /* Ancho del borde */
+}
+
+body.dark-mode {
+    background: #333;
+    color: white;
+}
+
+/* General Button Styling (Base para todos los botones) */
+button {
+    background-color: var(--button-default-light-bg);
+    color: var(--button-default-dark-text);
+    border: var(--button-border-width) solid #ccc; /* Usamos una variable para el borde */
+    padding: var(--button-padding); /* Padding estandarizado */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: var(--button-font-size); /* Tamaño de fuente estandarizado */
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
+    outline: none;
+    margin: 5px; /* Pequeño margen para separarlos si están en fila */
+}
+
+button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-blue);
+}
+
+button:active {
+    background-color: var(--primary-green);
+    color: white;
+    transform: translateY(0);
+    box-shadow: none;
+    border-color: var(--primary-green);
+}
+
+/* Dark Mode adaptation for general buttons */
+body.dark-mode button {
+    background-color: var(--button-default-dark-bg);
+    color: var(--button-default-light-text);
+    border: var(--button-border-width) solid #666;
+}
+
+body.dark-mode button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+body.dark-mode button:active {
+    background-color: var(--primary-green);
+    color: white;
+    border-color: var(--primary-green);
+}
+
+
+/* --- Botones específicos (ahora heredarán más de la base) --- */
+
+/* Botones de la Sección "Sobre mí" (.btn-sobre-mi) */
+.btn-sobre-mi {
+    /* Estos estilos ya están definidos en `button` general, ¡así que no necesitamos reescribirlos aquí! */
+    /* Solo si quisieras un estilo MUY específico para ellos, lo pondrías. */
+    /* Por ejemplo, si siempre quisieras que fueran más pequeños o con un borde diferente */
+}
+
+.btn-sobre-mi.activo {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 600;
+    border-color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .btn-sobre-mi.activo {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+
+/* Botones de Categoría de Habilidades (.categoriaBtn) */
+.categoriaBtn {
+    /* Igual que antes, hereda de `button`. */
+    /* Quité los paddings, font-size y border-radius específicos para que sean uniformes */
+    /* El background y color ya están cubiertos por la base y el dark mode */
+}
+
+.categoriaBtn:hover {
+    /* Hereda del estilo general de `button:hover` */
+}
+
+.categoriaBtn.activo {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 700;
+    border-color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .categoriaBtn:hover,
+body.dark-mode .categoriaBtn.activo {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+
+/* Botón "Ver más" (.verMasBtn) */
+.verMasBtn {
+    background: none; /* Este seguirá sin fondo por defecto, es un botón de texto */
+    border: var(--button-border-width) solid #888; /* Usa el ancho de borde estándar */
+    color: #888;
+    padding: var(--button-padding); /* Padding estandarizado */
+    font-size: var(--button-font-size); /* Tamaño de fuente estandarizado */
+    margin-top: 15px;
+    border-radius: var(--button-border-radius); /* Border-radius estandarizado */
+}
+
+.verMasBtn:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
