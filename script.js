@@ -201,3 +201,21 @@ verMasBotones.forEach(boton => {
         boton.textContent = detalle.classList.contains("oculto") ? "Ver más" : "Ver menos";
     });
 });
+
+
+//el boton que escribe
+const text = "Diseño Digital | Desarrollo Web | Marketing";
+  const inputField = document.getElementById("animatedInput");
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      inputField.value += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 100); // Velocidad de escritura
+    } else {
+      inputField.classList.add("shake"); // Activa la animación de sacudida al final
+    }
+  }
+
+  setTimeout(typeEffect, 500); // Retraso antes de iniciar la animación
