@@ -7,8 +7,11 @@ body {
     background: #f4f4f4;
     color: #333;
     transition: background 0.3s, color 0.3s;
-  
-  
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la pantalla */
+    margin: 0;
+ 
   
 }
 .dark-mode {
@@ -505,11 +508,7 @@ nav ul li a:hover {
 .whatsapp-float {
     background-color: hsl(189, 100%, 50%); /* O el verde WhatsApp original si preferís */
 }
-main {
-    max-width: 1000px; /* Ancho máximo para el contenido principal */
-    margin: 0 auto; /* Centrar el contenido */
-    padding: 20px; /* Espaciado interno general */
-}
+
 section {
     padding: 40px 20px; /* Más padding para separar secciones */
 }
@@ -525,18 +524,18 @@ body.dark-mode .iconos img {
 }
 
 /* Footer */
-/* Footer */
 footer {
     background: #222;
     color: white;
     padding: 20px;
-    /* Remover text-align: center; de aquí si lo tienes */
-    display: flex; /* Hacemos el footer un contenedor flex */
-    flex-direction: column; /* Apilamos los elementos verticalmente */
+    width: 100%; /* Hace que ocupe todo el ancho */
+    display: flex;
+    flex-direction: column; /* Mantiene los elementos en columna */
     align-items: center; /* Centra los elementos horizontalmente */
     justify-content: center; /* Centra los elementos verticalmente si hay espacio */
-    position: relative; /* Necesario para posicionar el email si lo quieres aparte */
+    position: relative;
 }
+
 
 
 footer p {
@@ -574,7 +573,7 @@ footer a:hover {
 
 /* Línea horizontal (HR) */
 hr {
-    border: none; /* Quita el borde por defecto */
+    
     border-top: 1px solid rgba(255, 255, 255, 0.2); /* Una línea sutil y blanca */
     margin: 40px auto; /* Centra la línea y dale espacio arriba y abajo */
     width: 80%; /* Ancho de la línea */
@@ -786,7 +785,11 @@ body.dark-mode .btn-sobre-mi.activo {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas */
     gap: 15px; /* Espacio entre los cuadros */
     margin-top: 15px;
+     max-width: 1000px; /* Ancho máximo para el contenido principal */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 20px; /* Espaciado interno general */
 }
+
 
 .cuadro {
     background-color: #f0f0f0; /* Color claro por defecto */
