@@ -219,3 +219,40 @@ const text = "Diseño Digital | Desarrollo Web | Marketing";
   }
 
   setTimeout(typeEffect, 500); // Retraso antes de iniciar la animación
+
+
+
+
+
+
+
+  // Animación proyecto
+ document.addEventListener("DOMContentLoaded", function () {
+    const botonesFiltro = document.querySelectorAll(".filtro-proyecto-btn");
+    const proyectosContainer = document.querySelector(".proyectos-container");
+
+    botonesFiltro.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const categoria = boton.getAttribute("data-categoria");
+            const proyectos = document.querySelectorAll(".proyecto");
+
+            let visibles = 0;
+            proyectos.forEach(proyecto => {
+                if (categoria === "todos" || proyecto.classList.contains(categoria)) {
+                    proyecto.style.display = "block";
+                    visibles++;
+                } else {
+                    proyecto.style.display = "none";
+                }
+            });
+
+            // Si hay pocos elementos, centramos la grid
+            if (visibles === 1) {
+                proyectosContainer.style.display = "flex";
+                proyectosContainer.style.justifyContent = "center";
+            } else {
+                proyectosContainer.style.display = "grid";
+            }
+        });
+    });
+});

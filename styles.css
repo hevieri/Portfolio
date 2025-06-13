@@ -26,11 +26,12 @@ body {
 
 /* Botón de modo oscuro */
 header {
-    
+    margin-top: 25px;
      display: flex;
     flex-direction: column; /* Ubica los elementos en columna */  
     align-items: center; /* Centra verticalmente */
     padding: 10px; /* Espaciado interno */
+    padding-top: 20px; /* Agrega espacio arriba */
     
 }
 
@@ -93,25 +94,123 @@ section {
 }
 
 /* Proyectos */
+
+/* Ajustamos cuando hay pocas cards */
+
+
+
 .proyectos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cards más pequeñas */
     gap: 20px;
-    padding: 20px;
+    padding: 30px 15px; /* Menos espacio alrededor */
+    justify-content: center;
+    perspective: 1000px; /* Agregamos perspectiva 3D */
 }
+
+
 
 .proyecto {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 100, 255, 0.4)); 
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    transform-style: preserve-3d;
+    max-width: 350px; /* Limita el ancho de la card para que no crezca demasiado */
+    margin: auto; /* Centra la card cuando hay pocas */
 }
 
+
+
+
 .proyecto:hover {
+    transform: rotateY(10deg) translateY(-5px) scale(1.05);
+    box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
+}
+
+
+.proyecto img {
+    width: 100%;
+    max-width: 800px; /* Evita que se agranden demasiado */
+    height: auto; /* Ajusta la altura para evitar distorsión */
+    aspect-ratio: 16 / 9; /* Mantiene proporción */
+    object-fit: cover; /* Asegura que no se vea pixelada */
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+}
+
+
+.proyecto:hover img {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* 🔹 Mejor jerarquía visual */
+
+.proyecto h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+   
+}
+
+.proyecto p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.3; /* Ajuste fino en la separación entre líneas */
+}
+
+
+/* 🔹 Links animados */
+.proyecto a {
+    color: #00ffea;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #00d4ff;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.proyecto a:hover {
+    color: #1ebe57;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filtro-proyecto-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease;
+}
+
+.filtro-proyecto-btn:hover {
+    background: var(--primary-green);
     transform: scale(1.05);
 }
 
+.filtro-proyecto-btn.activo {
+    background: #007BFF; /* Resalta el filtro seleccionado */
+}
 .dark-mode .proyecto {
     background: #444;
     color: white;
@@ -182,31 +281,14 @@ button:hover {
     display: none; /* Ocultas todas por defecto, luego el JS las muestra */
 }
 
-/* Variables CSS (asegúrate de que estas estén definidas al principio de tu archivo CSS) */
 :root {
-    /* ... (tus otras variables de colores y estilos generales) ... */
-    --primary-blue: #007BFF; /* Mantenemos la variable por si se usa en otros lados, pero no aquí */
-    --primary-green: #25D366;
-    --text-color-light: #333;
-    --text-color-dark: #f0f0f0;
-    --button-default-light-bg: #eee;
-    --button-default-dark-text: #333;
-    --button-default-dark-bg: #444;
-    --button-default-light-text: #f0f0f0;
-    --border-light: #ccc;
-    --border-dark: #666;
-
-    /* Estilos de botones uniformes (usados por la regla 'button' general) */
-    --button-padding: 10px 22px;
-    --button-font-size: 0.95rem;
-    --button-border-radius: 20px;
-    --button-border-width: 1px;
+    --primary-blue: hsl(189, 100%, 50%); /* Azul para fondo de botones */
+    --primary-green: #1ebe57; /* Verde cuando se presiona */
 }
 
-/* Base de estilos de botones (asegúrate de que esta regla esté presente en tu CSS) */
 button {
-    background-color: var(--button-default-light-bg);
-    color: var(--button-default-dark-text);
+    background-color: var(--primary-blue); /* Azul por defecto */
+    color: white;
     border: var(--button-border-width) solid var(--border-light);
     padding: var(--button-padding);
     cursor: pointer;
@@ -215,20 +297,11 @@ button {
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
     outline: none;
-    margin: 5px; /* Margen para separarlos en fila */
-}
-
-/* Estilos de hover y active para el botón general (estos SÍ usan el azul y el verde) */
-button:hover {
-    background-color: var(--primary-blue);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-blue);
+    margin: 5px;
 }
 
 button:active {
-    background-color: var(--primary-green);
+    background-color: var(--primary-green); /* Verde cuando se presiona */
     color: white;
     transform: translateY(0);
     box-shadow: none;
@@ -252,62 +325,6 @@ body.dark-mode button:active {
     background-color: var(--primary-green);
     color: white;
     border-color: var(--primary-green);
-}
-
----
-
-/* --- ESTILOS SOBREESCRITOS PARA LOS BOTONES "SOBRE MÍ" (.btn-sobre-mi) --- */
-/* Esta sección debe ir DESPUÉS de tu regla general 'button' */
-
-.botones-sobre-mi button {
-    /* Nos aseguramos de que el fondo, color de texto y borde sean neutrales por defecto */
-    background-color: var(--button-default-light-bg) !important;
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    
-    /* El resto de propiedades como padding, font-size, border-radius, etc.,
-       deberían heredar de tu regla 'button' general para uniformidad. */
-    /* Si aún necesitas un margen específico, déjalo aquí: */
-    margin: 5px; /* Unifica el margen con otros botones */
-}
-
-.botones-sobre-mi button:hover {
-    /* Anulamos el azul del hover y lo hacemos más discreto */
-    background-color: var(--neutral-medium-light) !important; /* Gris claro sutil en hover */
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* Sombra más suave */
-    transform: translateY(-2px) !important; /* Pequeño levantamiento */
-}
-
-/* El estado activo (seleccionado) de estos botones */
-.btn-sobre-mi.activo {
-    /* Anulamos el azul para el estado 'activo' */
-    background-color: var(--button-default-light-bg) !important;
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    font-weight: 600 !important;
-    box-shadow: none !important; /* Sin sombra en activo */
-    transform: translateY(0) !important; /* Vuelve a su posición normal */
-}
-
-/* --- Adaptación al Modo Oscuro para los botones "Sobre mí" --- */
-body.dark-mode .botones-sobre-mi button {
-    background-color: var(--button-default-dark-bg) !important;
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
-}
-
-body.dark-mode .botones-sobre-mi button:hover {
-    background-color: #555 !important; /* Gris un poco más claro en hover (modo oscuro) */
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
-}
-
-body.dark-mode .btn-sobre-mi.activo {
-    background-color: var(--button-default-dark-bg) !important;
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
 }
 
 /* IMPORTANTE: El estado :active (al hacer click) para estos botones,
@@ -500,7 +517,7 @@ img {
 nav ul li a:hover,
 .btn-sobre-mi.activo,
 .filtro-proyecto-btn.activo {
-    background-color: hsl(189, 100%, 35%); /* Una versión un poco más oscura para el hover */
+    color: hsl(189, 100%, 35%); /* Una versión un poco más oscura para el hover */
 }
 nav ul li a {
     color: #e0e0e0; /* Blanco roto para los enlaces del menú */
@@ -555,6 +572,7 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+    color: hsl(189, 100%, 50%);
 }
 
 .footer-email {
@@ -566,18 +584,8 @@ footer a:hover {
     width: 100%; /* Asegura que ocupe todo el ancho para centrar su propio texto */
 }
 
-/* Si quisieras posicionar el email ABSOLUTO como el dark mode toggle, sería así: */
-/*
-.footer-email {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    font-size: 0.9rem;
-    color: #ccc;
-}
-*/
 
-/* Línea horizontal (HR) */
+
 hr {
     
     border-top: 1px solid rgba(255, 255, 255, 0.2); /* Una línea sutil y blanca */
@@ -650,7 +658,7 @@ body.dark-mode {
 /* Variables CSS (Asegúrate de que estas estén al principio de tu archivo CSS) */
 :root {
     /* ... (tus otras variables de colores y estilos generales) ... */
-    --primary-blue: #007BFF;
+    --primary-blue: hsl(189, 100%, 50%);
     --primary-green: #25D366;
     --text-color-light: #333;
     --text-color-dark: #f0f0f0;
@@ -685,7 +693,7 @@ button {
 
 /* Estilos de hover y active para el botón general (estos SÍ usan el azul y el verde) */
 button:hover {
-    background-color: var(--primary-blue);
+    background-color: hsl(189, 100%, 50%);;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -708,7 +716,7 @@ body.dark-mode button {
 }
 
 body.dark-mode button:hover {
-    background-color: var(--primary-blue);
+    background-color: hsl(189, 100%, 50%);
     color: white;
     border-color: var(--primary-blue);
 }
@@ -719,13 +727,7 @@ body.dark-mode button:active {
     border-color: var(--primary-green);
 }
 
----
 
-## Sección "Sobre mí" y sus Elementos
-
-Aquí está el código reescrito para la sección "Sobre mí". Fíjate que el estilo de `.cuadro` se mantiene idéntico a como me lo pasaste al principio.
-
-```css
 /* Contenedor de botones "Sobre mí" */
 .botones-sobre-mi {
     margin-top: 20px;
