@@ -509,7 +509,21 @@ img {
 .cuadro { /* Para los rasgos generales */
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 100, 255, 0.4)); 
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    transform-style: preserve-3d;
+    
 }
+
+.cuadro {
+    color: white !important; /* Forzamos el color si hay otras reglas afectándolo */
+    
+}
+
 .dark-mode .cuadro {
     border: 1px solid #555;
 }
