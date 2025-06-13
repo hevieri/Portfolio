@@ -11,12 +11,6 @@ body {
   
   
 }
-
-body {
-    background-color: #ffffff;
-    color: #333;
-    /* Quitá el background-image */
-}
 .dark-mode {
     background-color: #1a1a1a;
     color: #f0f0f0;
@@ -185,84 +179,137 @@ button:hover {
     display: none; /* Ocultas todas por defecto, luego el JS las muestra */
 }
 
-.seccion-sobre-mi {
-  margin-top: 10px;
+/* Variables CSS (asegúrate de que estas estén definidas al principio de tu archivo CSS) */
+:root {
+    /* ... (tus otras variables de colores y estilos generales) ... */
+    --primary-blue: #007BFF; /* Mantenemos la variable por si se usa en otros lados, pero no aquí */
+    --primary-green: #25D366;
+    --text-color-light: #333;
+    --text-color-dark: #f0f0f0;
+    --button-default-light-bg: #eee;
+    --button-default-dark-text: #333;
+    --button-default-dark-bg: #444;
+    --button-default-light-text: #f0f0f0;
+    --border-light: #ccc;
+    --border-dark: #666;
+
+    /* Estilos de botones uniformes (usados por la regla 'button' general) */
+    --button-padding: 10px 22px;
+    --button-font-size: 0.95rem;
+    --button-border-radius: 20px;
+    --button-border-width: 1px;
 }
 
-.hidden {
-  display: none;
+/* Base de estilos de botones (asegúrate de que esta regla esté presente en tu CSS) */
+button {
+    background-color: var(--button-default-light-bg);
+    color: var(--button-default-dark-text);
+    border: var(--button-border-width) solid var(--border-light);
+    padding: var(--button-padding);
+    cursor: pointer;
+    border-radius: var(--button-border-radius);
+    font-size: var(--button-font-size);
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
+    outline: none;
+    margin: 5px; /* Margen para separarlos en fila */
 }
 
-#rasgos-generales {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+/* Estilos de hover y active para el botón general (estos SÍ usan el azul y el verde) */
+button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-blue);
 }
 
-#rasgos-generales h3 {
-  margin-bottom: 10px;
+button:active {
+    background-color: var(--primary-green);
+    color: white;
+    transform: translateY(0);
+    box-shadow: none;
+    border-color: var(--primary-green);
 }
 
-
-.botones-sobre-mi {
-  margin-top: 15px;
+/* Modo oscuro para la base de botones */
+body.dark-mode button {
+    background-color: var(--button-default-dark-bg);
+    color: var(--button-default-light-text);
+    border: var(--button-border-width) solid var(--border-dark);
 }
+
+body.dark-mode button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+body.dark-mode button:active {
+    background-color: var(--primary-green);
+    color: white;
+    border-color: var(--primary-green);
+}
+
+---
+
+/* --- ESTILOS SOBREESCRITOS PARA LOS BOTONES "SOBRE MÍ" (.btn-sobre-mi) --- */
+/* Esta sección debe ir DESPUÉS de tu regla general 'button' */
 
 .botones-sobre-mi button {
-  margin-right: 10px;
-  padding: 8px 16px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+    /* Nos aseguramos de que el fondo, color de texto y borde sean neutrales por defecto */
+    background-color: var(--button-default-light-bg) !important;
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    
+    /* El resto de propiedades como padding, font-size, border-radius, etc.,
+       deberían heredar de tu regla 'button' general para uniformidad. */
+    /* Si aún necesitas un margen específico, déjalo aquí: */
+    margin: 5px; /* Unifica el margen con otros botones */
 }
 
 .botones-sobre-mi button:hover {
-  background-color: #0056b3;
+    /* Anulamos el azul del hover y lo hacemos más discreto */
+    background-color: var(--neutral-medium-light) !important; /* Gris claro sutil en hover */
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* Sombra más suave */
+    transform: translateY(-2px) !important; /* Pequeño levantamiento */
 }
 
-.cuadricula-rasgos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  gap: 15px; /* Espacio entre los cuadros */
-  margin-top: 15px;
+/* El estado activo (seleccionado) de estos botones */
+.btn-sobre-mi.activo {
+    /* Anulamos el azul para el estado 'activo' */
+    background-color: var(--button-default-light-bg) !important;
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    font-weight: 600 !important;
+    box-shadow: none !important; /* Sin sombra en activo */
+    transform: translateY(0) !important; /* Vuelve a su posición normal */
 }
 
-.cuadro {
-  background-color: #f0f0f0; /* Color claro por defecto */
-  color: #333;
-  padding: 15px;
-  text-align: center;
-  border-radius: 8px;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* --- Adaptación al Modo Oscuro para los botones "Sobre mí" --- */
+body.dark-mode .botones-sobre-mi button {
+    background-color: var(--button-default-dark-bg) !important;
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
 }
 
-/* 🌓 Modo oscuro */
-body.dark-mode .cuadro {
-  background-color: #333;
-  color: #f0f0f0;
+body.dark-mode .botones-sobre-mi button:hover {
+    background-color: #555 !important; /* Gris un poco más claro en hover (modo oscuro) */
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
 }
 
-/* 📱 Responsive: 1 columna en pantallas chicas */
-@media (max-width: 600px) {
-  .cuadricula-rasgos {
-    grid-template-columns: 1fr;
-  }
+body.dark-mode .btn-sobre-mi.activo {
+    background-color: var(--button-default-dark-bg) !important;
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
 }
 
-#rasgos-generales {
-  margin-bottom: 60px; /* o el valor que te guste para la distancia */
-}
-
-  /* Estilo para el botón activo, ajustá como quieras */
-  .btn-sobre-mi.activo {
-    background-color: #007bff;
-    color: white;
-  }
-
+/* IMPORTANTE: El estado :active (al hacer click) para estos botones,
+   seguirá siendo VERDE, ya que heredan de la regla 'button:active' general
+   y no hemos sobrescrito ese estado específico aquí. */
   .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -491,6 +538,7 @@ footer {
     position: relative; /* Necesario para posicionar el email si lo quieres aparte */
 }
 
+
 footer p {
     margin: 5px 0; /* Un poco de margen entre los párrafos del footer */
 }
@@ -594,41 +642,43 @@ body.dark-mode {
 
 /* botones stilos*/
 /* boton*/
+/* Variables CSS (Asegúrate de que estas estén al principio de tu archivo CSS) */
 :root {
-    --primary-blue: #007BFF; /* Un azul vibrante */
-    --primary-green: #25D366; /* El verde de WhatsApp */
+    /* ... (tus otras variables de colores y estilos generales) ... */
+    --primary-blue: #007BFF;
+    --primary-green: #25D366;
+    --text-color-light: #333;
+    --text-color-dark: #f0f0f0;
     --button-default-light-bg: #eee;
     --button-default-dark-text: #333;
     --button-default-dark-bg: #444;
     --button-default-light-text: #f0f0f0;
+    --border-light: #ccc;
+    --border-dark: #666;
 
-    /* Nuevas variables para estandarizar el estilo de los botones */
-    --button-padding: 10px 22px; /* Padding uniforme */
-    --button-font-size: 0.95rem; /* Tamaño de fuente uniforme */
-    --button-border-radius: 20px; /* Bordes muy redondeados para todos */
-    --button-border-width: 1px; /* Ancho del borde */
+    /* Estilos de botones uniformes (usados por la regla 'button' general) */
+    --button-padding: 10px 22px;
+    --button-font-size: 0.95rem;
+    --button-border-radius: 20px;
+    --button-border-width: 1px;
 }
 
-body.dark-mode {
-    background: #333;
-    color: white;
-}
-
-/* General Button Styling (Base para todos los botones) */
+/* Base de estilos de botones (asegúrate de que esta regla esté presente en tu CSS) */
 button {
     background-color: var(--button-default-light-bg);
     color: var(--button-default-dark-text);
-    border: var(--button-border-width) solid #ccc; /* Usamos una variable para el borde */
-    padding: var(--button-padding); /* Padding estandarizado */
+    border: var(--button-border-width) solid var(--border-light);
+    padding: var(--button-padding);
     cursor: pointer;
-    border-radius: 5px;
-    font-size: var(--button-font-size); /* Tamaño de fuente estandarizado */
+    border-radius: var(--button-border-radius);
+    font-size: var(--button-font-size);
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
     outline: none;
-    margin: 5px; /* Pequeño margen para separarlos si están en fila */
+    margin: 5px;
 }
 
+/* Estilos de hover y active para el botón general (estos SÍ usan el azul y el verde) */
 button:hover {
     background-color: var(--primary-blue);
     color: white;
@@ -645,11 +695,11 @@ button:active {
     border-color: var(--primary-green);
 }
 
-/* Dark Mode adaptation for general buttons */
+/* Modo oscuro para la base de botones */
 body.dark-mode button {
     background-color: var(--button-default-dark-bg);
     color: var(--button-default-light-text);
-    border: var(--button-border-width) solid #666;
+    border: var(--button-border-width) solid var(--border-dark);
 }
 
 body.dark-mode button:hover {
@@ -664,75 +714,100 @@ body.dark-mode button:active {
     border-color: var(--primary-green);
 }
 
+---
 
-/* --- Botones específicos (ahora heredarán más de la base) --- */
+## Sección "Sobre mí" y sus Elementos
 
-/* Botones de la Sección "Sobre mí" (.btn-sobre-mi) */
-.btn-sobre-mi {
-    /* Estos estilos ya están definidos en `button` general, ¡así que no necesitamos reescribirlos aquí! */
-    /* Solo si quisieras un estilo MUY específico para ellos, lo pondrías. */
-    /* Por ejemplo, si siempre quisieras que fueran más pequeños o con un borde diferente */
+Aquí está el código reescrito para la sección "Sobre mí". Fíjate que el estilo de `.cuadro` se mantiene idéntico a como me lo pasaste al principio.
+
+```css
+/* Contenedor de botones "Sobre mí" */
+.botones-sobre-mi {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+/* Estilo para los botones dentro de .botones-sobre-mi (Educación, Experiencia, Cursos) */
+.botones-sobre-mi button {
+    /* Aquí se aseguran los estilos neutrales y sobrescriben cualquier azul anterior */
+    background-color: var(--button-default-light-bg) !important;
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    margin: 5px; /* Unifica el margen */
+}
+
+/* Estado de HOVER para los botones "Sobre mí" (NEUTRAL) */
+.botones-sobre-mi button:hover {
+    background-color: var(--neutral-medium-light) !important;
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Estado ACTIVO (seleccionado) para los botones "Sobre mí" (NEUTRAL) */
 .btn-sobre-mi.activo {
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 600;
-    border-color: var(--primary-blue);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--button-default-light-bg) !important;
+    color: var(--button-default-dark-text) !important;
+    border-color: var(--border-light) !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+    transform: translateY(0) !important;
+}
+
+/* --- Adaptación al Modo Oscuro para los botones "Sobre mí" --- */
+body.dark-mode .botones-sobre-mi button {
+    background-color: var(--button-default-dark-bg) !important;
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
+}
+
+body.dark-mode .botones-sobre-mi button:hover {
+    background-color: #555 !important;
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
 }
 
 body.dark-mode .btn-sobre-mi.activo {
-    background-color: var(--primary-blue);
-    color: white;
-    border-color: var(--primary-blue);
+    background-color: var(--button-default-dark-bg) !important;
+    color: var(--button-default-light-text) !important;
+    border-color: var(--border-dark) !important;
 }
 
-
-/* Botones de Categoría de Habilidades (.categoriaBtn) */
-.categoriaBtn {
-    /* Igual que antes, hereda de `button`. */
-    /* Quité los paddings, font-size y border-radius específicos para que sean uniformes */
-    /* El background y color ya están cubiertos por la base y el dark mode */
+/* --- ESTILO PARA LOS CUADROS DE RASGOS (Restaurado a como lo tenías) --- */
+#rasgos-generales {
+    margin-bottom: 60px; /* o el valor que te guste para la distancia */
 }
 
-.categoriaBtn:hover {
-    /* Hereda del estilo general de `button:hover` */
-}
-
-.categoriaBtn.activo {
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 700;
-    border-color: var(--primary-blue);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode .categoriaBtn:hover,
-body.dark-mode .categoriaBtn.activo {
-    background-color: var(--primary-blue);
-    color: white;
-    border-color: var(--primary-blue);
-}
-
-
-/* Botón "Ver más" (.verMasBtn) */
-.verMasBtn {
-    background: none; /* Este seguirá sin fondo por defecto, es un botón de texto */
-    border: var(--button-border-width) solid #888; /* Usa el ancho de borde estándar */
-    color: #888;
-    padding: var(--button-padding); /* Padding estandarizado */
-    font-size: var(--button-font-size); /* Tamaño de fuente estandarizado */
+.cuadricula-rasgos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 15px; /* Espacio entre los cuadros */
     margin-top: 15px;
-    border-radius: var(--button-border-radius); /* Border-radius estandarizado */
 }
 
-.verMasBtn:hover {
-    background-color: var(--primary-blue);
-    color: white;
-    border-color: var(--primary-blue);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.cuadro {
+    background-color: #f0f0f0; /* Color claro por defecto */
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Adaptación al Modo Oscuro para los cuadros */
+body.dark-mode .cuadro {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+/* Responsive: 1 columna en pantallas chicas */
+@media (max-width: 600px) {
+    .cuadricula-rasgos {
+        grid-template-columns: 1fr;
+    }
 }
