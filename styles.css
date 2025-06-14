@@ -577,11 +577,8 @@ body.dark-mode hr {
     border-top: 1px solid rgba(0, 0, 0, 0.2); /* En modo oscuro, puede ser más oscura */
 }
 
-/* Consideraciones para el header (si quieres que sea un poco más controlado) */
+
 header {
-    /* Tu CSS actual para header es bueno. */
-    /* Si quieres que el H1 del header se vea más grande o con un estilo particular */
-    /* ya lo puedes manejar desde h1 en el CSS general o aquí si es específico de header */
     padding: 20px 10px; /* Ajusta el padding si lo necesitas */
     display: flex; /* Lo convierto a flex para mejor control */
     justify-content: center; /* Centra el contenido principal (h1) */
@@ -613,27 +610,6 @@ header h1 {
     }
 }
 
-/* botones stilos*/
-
-:root {
-    --primary-blue: #007BFF; /* Un azul vibrante */
-    --primary-green: #25D366; /* El verde de WhatsApp */
-    --button-default-light-bg: #eee;
-    --button-default-dark-text: #333;
-    --button-default-dark-bg: #444;
-    --button-default-light-text: #f0f0f0;
-}
-
-body.dark-mode {
-    /* Tu CSS de dark-mode actual */
-    background: #333;
-    color: white;
-}
-
-
-/* botones stilos*/
-/* boton*/
-/* Variables CSS (Asegúrate de que estas estén al principio de tu archivo CSS) */
 :root {
     /* ... (tus otras variables de colores y estilos generales) ... */
     --primary-blue: hsl(189, 100%, 50%);
