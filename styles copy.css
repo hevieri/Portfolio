@@ -3,7 +3,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;    
+    text-align: center;
+    background: #f4f4f4;
+    color: #333;
     transition: background 0.3s, color 0.3s;
     display: flex;
     flex-direction: column;
@@ -92,6 +94,10 @@ section {
 }
 
 /* Proyectos */
+
+/* Ajustamos cuando hay pocas cards */
+
+
 
 .proyectos-container {
     display: grid;
@@ -215,9 +221,6 @@ section {
     display: none;
 }
 
-
-
-
 /* Botones */
 button {
     background: #444;
@@ -228,6 +231,9 @@ button {
     transition: background 0.3s;
 }
 
+button:hover {
+    background: #555;
+}
 
 
 /* Responsivo */
@@ -267,13 +273,21 @@ button {
     transition: background 0.3s;
 }
 
+.filtro-btn:hover, .filtro-btn.activo {
+    background: #007BFF;
+}
 
 .habilidad {
     display: none; /* Ocultas todas por defecto, luego el JS las muestra */
 }
 
+:root {
+    --primary-blue: hsl(189, 100%, 50%); /* Azul para fondo de botones */
+    --primary-green: #1ebe57; /* Verde cuando se presiona */
+}
 
 button {
+    background-color: var(--primary-blue); /* Azul por defecto */
     color: white;
     border: var(--button-border-width) solid var(--border-light);
     padding: var(--button-padding);
@@ -287,13 +301,35 @@ button {
 }
 
 button:active {
-    
+    background-color: var(--primary-green); /* Verde cuando se presiona */
     color: white;
     transform: translateY(0);
     box-shadow: none;
     border-color: var(--primary-green);
 }
 
+/* Modo oscuro para la base de botones */
+body.dark-mode button {
+    background-color: var(--button-default-dark-bg);
+    color: var(--button-default-light-text);
+    border: var(--button-border-width) solid var(--border-dark);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+body.dark-mode button:active {
+    background-color: var(--primary-green);
+    color: white;
+    border-color: var(--primary-green);
+}
+
+/* IMPORTANTE: El estado :active (al hacer click) para estos botones,
+   seguirá siendo VERDE, ya que heredan de la regla 'button:active' general
+   y no hemos sobrescrito ese estado específico aquí. */
   .whatsapp-float {
   position: fixed;
   bottom: 20px;
