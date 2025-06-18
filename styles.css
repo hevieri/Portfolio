@@ -554,24 +554,46 @@ body.dark-mode hr {
 }
 
 @media screen and (max-width: 768px) {
-  .categorias,
-  .filtros {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
+ .categorias,
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 18px; /* Aumentamos el gap horizontal y vertical */
+  padding: 12px 0;
+  margin-bottom: 24px;
+}
+
+.categorias button,
+.filtros .filtro-proyecto-btn {
+  flex: 1 1 calc(45%);
+  min-width: 120px;
+  max-width: 160px;
+  padding: 10px;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .verMasBtn {
+    all: unset;
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #a29bfe;
+    color: #fff;
+    opacity: 0.85;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: none;
+    margin-top: 12px;
+    text-align: center;
   }
 
-  .categorias button,
-  .filtros .filtro-proyecto-btn {
-    flex: 1 1 calc(45%);
-    min-width: 120px;
-    max-width: 160px;
-    padding: 10px;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    text-align: center;
+  .verMasBtn:hover {
+    background-color: #8e82f3;
+    transform: scale(1.04);
+    opacity: 1;
   }
 }
