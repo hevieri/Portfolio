@@ -598,3 +598,26 @@ body.dark-mode hr {
   max-width: 440px;
   font-size: 12px;
 }
+
+@media screen and (max-width: 768px) {
+  .categorias,
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  .categorias button,
+  .filtro-proyecto-btn {
+    flex: 1 1 calc(45%);
+    min-width: 120px;
+    max-width: 160px;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
