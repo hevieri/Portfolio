@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const descripcionTexto = document.getElementById("descripcionTexto");
 
   const descripciones = {
-    web: "Como desarrollador web, manejo HTML, CSS, JavaScript, PHP, MySQL y frameworks como Bootstrap y jQuery.",
+    web: "Como desarrolladora web, manejo HTML, CSS, JavaScript, PHP, MySQL y frameworks como Bootstrap y jQuery.",
     marketing: "Experiencia en WordPress y marketing digital, gestionando contenido y campañas efectivas.",
     grafico: "Diseño profesional con Illustrator, Photoshop, After Effects y Premiere Pro.",
   };
@@ -40,16 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
   verMasBtn?.addEventListener("click", () => {
     if (!categoriaActual) return;
 
-    if (descripcionVisible) {
-      descripcionBloque.style.maxHeight = "0";
-      descripcionTexto.classList.replace("opacity-100", "opacity-0");
-      verMasBtn.textContent = "Ver más";
-    } else {
-      descripcionTexto.textContent = descripciones[categoriaActual];
-      descripcionTexto.classList.replace("opacity-0", "opacity-100");
-      descripcionBloque.style.maxHeight = "10rem";
-      verMasBtn.textContent = "Ver menos";
-    }
+    descripcionBloque.style.maxHeight = descripcionVisible ? "0" : "10rem";
+    descripcionTexto.classList.toggle("opacity-0");
+    descripcionTexto.classList.toggle("opacity-100");
+    verMasBtn.textContent = descripcionVisible ? "Ver más" : "Ver menos";
     descripcionVisible = !descripcionVisible;
   });
 
@@ -58,61 +52,55 @@ document.addEventListener("DOMContentLoaded", () => {
     boton.addEventListener("click", () => {
       const contenido = document.getElementById(boton.dataset.target);
       contenido.classList.toggle("oculto");
-      boton.textContent = contenido.classList.contains("oculto")
-        ? "Ver más"
-        : "Ver menos";
+      boton.textContent = contenido.classList.contains("oculto") ? "Ver más" : "Ver menos";
     });
   });
 
-  // 🧩 CAMBIO DE CATEGORÍA + DETALLE VER MÁS
+  // 🧩 CATEGORÍAS DE HABILIDADES TÉCNICAS
   const categoriaBotones = document.querySelectorAll(".categoriaBtn");
   const categorias = document.querySelectorAll(".categoria");
 
-  // Ocultar todas y mostrar solo la primera al inicio
-categorias.forEach((cat, i) => {
-  if (i === 0) {
-    cat.classList.remove("oculto");
-  } else {
-    cat.classList.add("oculto");
-  }
-});
-
+  categorias.forEach((cat, i) => {
+    cat.classList.toggle("oculto", i !== 0);
+  });
 
   categoriaBotones.forEach(boton => {
     boton.addEventListener("click", () => {
       categorias.forEach(cat => cat.classList.add("oculto"));
-      const contenido = document.getElementById(boton.dataset.target);
-      contenido.classList.remove("oculto");
+      const destino = document.getElementById(boton.dataset.target);
+      destino.classList.remove("oculto");
     });
   });
 
+  // 📚 TEXTOS "VER MÁS" EN HABILIDADES
   document.querySelectorAll(".verMasBtn").forEach(boton => {
     boton.addEventListener("click", () => {
       const detalle = document.getElementById(boton.dataset.target);
       detalle.classList.toggle("oculto");
-      boton.textContent = detalle.classList.contains("oculto")
-        ? "Ver más"
-        : "Ver menos";
+      boton.textContent = detalle.classList.contains("oculto") ? "Ver más" : "Ver menos";
     });
   });
-const text = "Diseño Digital | Desarrollo Web | Marketing";
-const inputField = document.getElementById("animatedInput");
-let index = 0;
 
-function typeEffect() {
-  if (index < text.length) {
-    inputField.value += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 100);
-  } else {
-    inputField.classList.add("shake");
+  // 🖋️ ANIMACIÓN DE INPUT (escritura)
+  const inputField = document.getElementById("animatedInput");
+  if (inputField) {
+    const text = "Diseño Digital | Desarrollo Web | Marketing";
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        inputField.value += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      } else {
+        inputField.classList.add("shake");
+      }
+    }
+
+    setTimeout(typeEffect, 500);
   }
-}
 
-setTimeout(typeEffect, 500);
-
-
-  // 🎨 FILTRADO + ANIMACIÓN de PROYECTOS
+  // 🎨 FILTRADO DE PROYECTOS
   const botonesFiltro = document.querySelectorAll(".filtro-proyecto-btn");
   const proyectosContainer = document.querySelector(".proyectos-container");
   const proyectos = document.querySelectorAll(".proyecto");
@@ -123,51 +111,58 @@ setTimeout(typeEffect, 500);
 
       let visibles = 0;
       proyectos.forEach(proyecto => {
-        if (categoria === "todos" || proyecto.classList.contains(categoria)) {
-          proyecto.style.display = "block";
-          visibles++;
-        } else {
-          proyecto.style.display = "none";
-        }
+        const coincide = categoria === "todos" || proyecto.classList.contains(categoria);
+        proyecto.style.display = coincide ? "block" : "none";
+        if (coincide) visibles++;
       });
 
-      if (visibles === 1) {
-        proyectosContainer.style.display = "flex";
-        proyectosContainer.style.justifyContent = "center";
-      } else {
-        proyectosContainer.style.display = "grid";
-      }
+      proyectosContainer.style.display = visibles === 1 ? "flex" : "grid";
+      proyectosContainer.style.justifyContent = visibles === 1 ? "center" : "initial";
     });
   });
 
-  // Mostrar proyectos al azar al cargar
-  const categoriasProyectos = ["web", "marketing", "grafico"];
+  // Mostrar una categoría al azar al cargar
+  const categoriasProyectos = ["web", "marketing", "grafico", "multimedia"];
   const randomCat = categoriasProyectos[Math.floor(Math.random() * categoriasProyectos.length)];
   proyectos.forEach(proyecto => {
     proyecto.style.display = proyecto.classList.contains(randomCat) ? "block" : "none";
   });
 
-  // 🧠 "Sobre mí": cambio de sección con botón activo
+  // 👤 "Sobre mí": mostrar secciones con botón activo
+
+  
   const botonesSobreMi = document.querySelectorAll(".btn-sobre-mi");
-  const seccionesSobreMi = document.querySelectorAll(".seccion-sobre-mi");
+const seccionesSobreMi = document.querySelectorAll(".seccion-sobre-mi");
 
-  if (botonesSobreMi.length > 0 && seccionesSobreMi.length > 0) {
-    botonesSobreMi.forEach(boton => {
-      boton.addEventListener("click", () => {
-        const seccionSeleccionada = boton.getAttribute("data-seccion");
+if (botonesSobreMi.length && seccionesSobreMi.length) {
+  botonesSobreMi.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const id = boton.getAttribute("data-seccion");
 
-        seccionesSobreMi.forEach(seccion => seccion.classList.add("hidden"));
-        document.getElementById(seccionSeleccionada).classList.remove("hidden");
-
-        botonesSobreMi.forEach(btn => btn.classList.remove("activo"));
-        boton.classList.add("activo");
+      // Oculta todas las secciones primero
+      seccionesSobreMi.forEach(seccion => {
+        seccion.classList.add("oculto");
+        seccion.classList.remove("mostrar");
       });
-    });
 
-    botonesSobreMi[0].classList.add("activo");
-    const primerId = botonesSobreMi[0].getAttribute("data-seccion");
-    document.getElementById(primerId).classList.remove("hidden");
-  }
+      // Muestra la seleccionada
+      const seleccionada = document.getElementById(id);
+      seleccionada.classList.remove("oculto");
+      seleccionada.classList.add("mostrar");
+
+      // Marca el botón activo
+      botonesSobreMi.forEach(btn => btn.classList.remove("activo"));
+      boton.classList.add("activo");
+    });
+  });
+
+  // Opcional: iniciar con todo oculto
+  seccionesSobreMi.forEach(seccion => {
+    seccion.classList.add("oculto");
+    seccion.classList.remove("mostrar");
+  });
+}
+
 
   // 🍔 MENÚ HAMBURGUESA
   const menuToggle = document.getElementById("menu-toggle");
@@ -177,4 +172,3 @@ setTimeout(typeEffect, 500);
     menu.classList.toggle("active");
   });
 });
-
