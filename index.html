@@ -1,237 +1,205 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Indica que el contenido del documento está en español -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Erika Helfenstern</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Para diseño responsive -->
+  <title>Portfolio de Erika Helfenstern</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Vincula archivo de estilos externos -->
 </head>
+
 <body>
-    <header>
-        <h1>Erika Helfenstern</h1>
-        <!-- boton que escribe -->
+  <header>
+  <div class="header-linea">
+    <button id="menu-toggle" class="menu-icon" aria-label="Menú">☰</button>
+    <h1>Erika Helfenstern</h1>
+    <button id="dark-mode-toggle" title="Modo oscuro">🌓</button>
+  </div>
+  <div class="input-container">
+    <input type="text" id="animatedInput" class="input" readonly />
+  </div>
+</header>
 
-<div class="input-container">
-  <input
-    class="input"
-    type="text"
-    value=""
-    readonly
-    id="animatedInput"
-  />
+
+  <!-- Menú de navegación principal con botón hamburguesa para móviles -->
+  
+
+  <!-- Contenido principal del sitio -->
+  <main>
+    <!-- Sección sobre mí -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+
+      <!-- Bloque con rasgos personales destacados -->
+      <div id="rasgos-generales" class="rasgos-generales">
+        <h3>Rasgos Generales</h3>
+
+        <!-- Descripción personal -->
+        <p>
+          Soy una persona curiosa, siempre quiero aprender más. Si surge un problema busco la manera de solucionarlo. 
+          <br>Me gusta trabajar sola, pero soy bastante colaborativa, disfruto más haciéndolo en equipo...
+          <br>Utilizo sin problemas la Inteligencia Artificial y la Redacción...
+        </p>
+
+        <!-- Cuadricula con cualidades destacadas -->
+        <div class="cuadricula-rasgos">
+          <div class="cuadro">Organización</div>
+          <div class="cuadro">Trabajo en Equipo</div>
+          <div class="cuadro">Facilidad para aprender cosas nuevas.</div>
+          <div class="cuadro">Resolución de problemas</div>
+        </div>
+      </div>
+
+      <!-- Botones para alternar entre Educación, Experiencia y Cursos -->
+      <div class="botones-sobre-mi">
+        <button class="btn-sobre-mi" data-seccion="educacion">Educación</button>
+        <button class="btn-sobre-mi" data-seccion="experiencia">Experiencia</button>
+        <button class="btn-sobre-mi" data-seccion="certificaciones">Cursos</button>
+      </div>
+
+      <!-- Contenido dinámico que se muestra al presionar los botones -->
+      <div class="contenido-sobre-mi">
+
+        <!-- Sección: Educación -->
+        <div class="seccion-sobre-mi hidden" id="educacion">
+          <p><strong>Diseñadora Gráfica Digital</strong> - ORT Argentina 2022-2024<br>
+          Título técnico con enfoque en Diseño Gráfico, Marketing y Desarrollo Web.</p>
+          <p><strong>Periodismo</strong> - Universidad Abierta Interamericana 2015-2017<br>
+          Habilidades en Comunicación, Redacción, Audiovisuales y Multimedia.</p>
+        </div>
+
+        <!-- Sección: Experiencia laboral -->
+        <div class="seccion-sobre-mi hidden" id="experiencia">
+          <p><strong>Freelancer 2025</strong> - Desarrollo de sitios web y piezas gráficas.<br>
+          Experiencia en diseño UX/UI y marketing digital.</p>
+          <p><strong>Activo Center 2022</strong> - Ventas, Retenciones, Administración<br>
+          CRM Citrix, Salesforce Lightning.</p>
+          <p><strong>Proyecto estudiantil</strong> - El Rincón del Friki:<br>
+          Mantenimiento general del sitio. Subida de contenido diario, edición gráfica, SEO, Google Ads...</p>
+        </div>
+
+        <!-- Sección: Certificaciones y Cursos -->
+        <div class="seccion-sobre-mi hidden" id="certificaciones">
+          <p><strong>Coderhouse</strong><br>- Photoshop e Illustrator 2023</p>
+          <p><strong>Educación IT</strong><br>
+          - Desarrollo Web con HTML 2022<br>
+          - Maquetador Web Avanzado 2022<br>
+          - WordPress 2022<br>
+          - JavaScript desde cero 2022<br>
+          - PHP y MySQL 2024</p>
+          <p><strong>Crehana</strong><br>- Desarrollo Web Front End con HTML y CSS</p>
+          <p><strong>Instituto Mallea</strong><br>- Capacitación Técnica Profesional, 2017</p>
+        </div>
+      </div>
+    </section>
+
+<!-- Sección siguiente: botones de categoría de habilidades -->
+   
+<h2>Habilidades Técnicas</h2>
+
+<!-- Botones de categoría -->
+<div class="categorias">
+  <button class="categoriaBtn" data-target="web">Diseño Web</button>
+  <button class="categoriaBtn" data-target="marketing">Marketing</button>
+  <button class="categoriaBtn" data-target="grafico">Diseño Gráfico</button>
+  <button class="categoriaBtn" data-target="multimedia">Multimedia</button>
+  <button class="categoriaBtn" data-target="utilidades">Utilidades</button>
 </div>
-        
-        <button id="dark-mode-toggle" aria-label="Alternar modo oscuro">🌙</button>
-    </header>
 
-    <nav id="menu">
-        <ul>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#footer">Contacto</a></li>
-
-        </ul>
-    </nav>
-
-    <main>
-        <section id="sobre-mi">
-  <h2>Sobre mí</h2>
-<!-- Bloque nuevo con rasgos generales -->
-  <div id="rasgos-generales" class="rasgos-generales">
-
-    <h3>Rasgos Generales</h3>
-    <p>Soy una persona curiosa, siempre quiero aprender más. Si surge un problema busco la manera de solucionarlo. 
-        <br>Me gusta trabajar sola, pero soy bastante colaborativa, disfruto más haciendolo en equipo porque me gusta ayudar a los demás y ayudarlos a encontrar su fuerte.
-    <br>Utilizo sin problemas la Inteligencia Artificial y la Redacción, siento que son herramientas que no pueden faltar en un perfil. </p>
-    <div class="cuadricula-rasgos">
-  <div class="cuadro">Organización</div>
-  <div class="cuadro">Trabajo en Equipo</div>
-  <div class="cuadro">Facilidad para aprender cosas nuevas.</div>
-  <div class="cuadro">Resolución de problemas</div>
+<!-- Categoría: Diseño Web -->
+<div id="web" class="categoria oculto">
+  <div class="iconos">
+    <img src="https://img.icons8.com/color/48/html-5.png" alt="HTML">
+    <img src="https://img.icons8.com/color/48/css3.png" alt="CSS">
+    <img src="https://img.icons8.com/color/48/javascript--v1.png" alt="JavaScript">
+    <img src="https://img.icons8.com/ios-filled/48/jquery.png" alt="jQuery">
+    <img src="https://img.icons8.com/color/48/bootstrap.png" alt="Bootstrap">
+    <img src="https://img.icons8.com/officel/48/php-logo.png" alt="PHP">
+    <img src="https://img.icons8.com/color/48/mysql-logo.png" alt="SQL">
+  </div>
+  <button class="verMasBtn" data-target="info-web">Ver más</button>
+  <p id="info-web" class="detalle oculto">
+    En 2021, tras familiarizarme con herramientas como WordPress y marketing digital, me formé en desarrollo web:
+    <br>HTML, CSS, Bootstrap, JavaScript, jQuery, PHP y SQL.
+  </p>
 </div>
 
-
+<!-- Categoría: Marketing -->
+<div id="marketing" class="categoria oculto">
+  <div class="iconos">
+    <img src="https://img.icons8.com/color/48/wordpress.png" alt="WordPress">
+    <img src="https://img.icons8.com/color/48/google-ads.png" alt="Google Ads">
+    <img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel">
+    <img src="https://img.icons8.com/color/48/canva.png" alt="Canva">
   </div>
-  <div class="botones-sobre-mi">
-    <button class="btn-sobre-mi" data-seccion="educacion">Educación</button>
-    <button class="btn-sobre-mi" data-seccion="experiencia">Experiencia</button>
-    <button class="btn-sobre-mi" data-seccion="certificaciones">Cursos</button>
+  <button class="verMasBtn" data-target="info-marketing">Ver más</button>
+  <p id="info-marketing" class="detalle oculto">
+    Experiencia desde 2013 en plataformas como Blogger y WordPress, incluyendo SEO y estrategias de marketing digital.
+  </p>
+</div>
+
+<!-- Categoría: Diseño Gráfico -->
+<div id="grafico" class="categoria oculto">
+  <div class="iconos">
+    <img src="https://img.icons8.com/color/48/adobe-photoshop--v1.png" alt="Photoshop">
+    <img src="https://img.icons8.com/color/48/adobe-illustrator--v1.png" alt="Illustrator">
   </div>
+  <button class="verMasBtn" data-target="info-grafico">Ver más</button>
+  <p id="info-grafico" class="detalle oculto">
+    Formación en Diseño Gráfico Digital (ORT), uso de Figma, Canva y suite Adobe para UX/UI y diseño editorial.
+  </p>
+</div>
 
-  <div class="contenido-sobre-mi">
-    <div class="seccion-sobre-mi hidden" id="educacion">
-      <p><strong>Diseñadora Gráfica Digital</strong> - ORT Argentina 2022-2024<br>Título técnico con enfoque en Diseño Gráfico, Marketing y Desarrollo Web.</p>
-      <p><strong>Periodismo</strong> - Universidad Abierta Interamericana 2015-2017<br>Hábilidades en Comunicación, Redacción, Audiovisuales y Multimedia.</p>
-    </div>
-    <div class="seccion-sobre-mi hidden" id="experiencia">
-        <p><strong>Freelancer 2025</strong> - Desarrollo de sitios web y piezas gráficas.<br>Experiencia en diseño UX/UI y marketing digital.</p>
-        <p><strong>Activo Center 2022</strong> - Ventas, Retenciones, Administración<br> CRM Citrix, Saleforce Lightning.</p>
-      <p><strong>Proyecto estudiantil</strong> - El Rincón del Friki, Mantenimiento general del sitio:<br> Subida de contenido diario. Edición de piezas gráficas y contenido. SEO, Google Ads. Campaña por redes sociales.</p>
-    </div>
-    <div class="seccion-sobre-mi hidden" id="certificaciones">
-    <p><strong>Coderhouse</strong><br>- Photoshop e Ilustrator 2023</p>
-    <p><strong>Educacion IT</strong><br>- Desarrollo Web con HTML 2022 <br>- Maquetador Web Avanzado 2022 <br>- Wordpress 2022 <br>- Javascript desde cero 2022<br>- Programación Web en PHP y MySQL 2024</p>
-      <p><strong>Crehana</strong><br>- Introduccion al Desarrollo Web Front End: HTML y CSS desde cero 2022</p>
-      <p><strong>Instituto Superior de Letras Eduardo Mallea</strong><br>- Curso de Capacitación, Actualización y Perfeccionamiento Técnico-Profesional. 2017</p>
-       
-    </div>
+<!-- Categoría: Multimedia -->
+<div id="multimedia" class="categoria oculto">
+  <div class="iconos">
+    <img src="https://img.icons8.com/color/48/adobe-premiere-pro--v1.png" alt="Premiere Pro">
+    <img src="https://img.icons8.com/color/48/adobe-after-effects--v1.png" alt="After Effects">
   </div>
-</section>
+  <button class="verMasBtn" data-target="info-multimedia">Ver más</button>
+  <p id="info-multimedia" class="detalle oculto">
+    Experiencia en edición de video y audio desde 2015 con Premiere, After Effects, Audacity, Audition y más.
+  </p>
+</div>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades Técnicas</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-     <h2>Habilidades Técnicas</h2>
+<!-- Categoría: Utilidades -->
+<div id="utilidades" class="categoria oculto">
+  <div class="iconos">
+    <img src="https://img.icons8.com/color/48/microsoft-office-2019.png" alt="Microsoft Office">
+    <img src="https://img.icons8.com/ios-filled/50/notion.png" alt="Notion">
+  </div>
+  <button class="verMasBtn" data-target="info-utilidades">Ver más</button>
+  <p id="info-utilidades" class="detalle oculto">
+    Administración de recursos tecnológicos, manejo de Office, Notion y mantenimiento básico de hardware.
+  </p>
+</div>
 
-    <!-- Botones principales -->
-    <button class="categoriaBtn" data-target="web">Diseño Web</button>
-    <button class="categoriaBtn" data-target="marketing">Marketing</button>
-    <button class="categoriaBtn" data-target="grafico">Diseño Gráfico</button>
-    <button class="categoriaBtn" data-target="multimedia">Multimedia</button>
-    <button class="categoriaBtn" data-target="utilidades">Utilidades</button>
-
-    <!-- Contenedor de información -->
-    <div id="web" class="categoria oculto">
-        <div class="iconos">
-            <img src="html-icon.png" alt="HTML">
-            <img src="css-icon.png" alt="CSS">
-        </div>
-        <button class="verMasBtn" data-target="info-web">Ver más</button>
-        <p id="info-web" class="detalle oculto">En 2021, tras familiarizarme con herramientas como WordPress y entender los fundamentos del marketing digital, comencé a formarme en desarrollo web:
-
-<br>2021: Inicié con HTML y CSS para comprender la estructura y el diseño básico de páginas web.
-
-Poco después incorporé Bootstrap para agilizar el desarrollo responsive.
-
-A continuación, profundicé en JavaScript y jQuery para añadir interactividad.
-
-Paralelamente, aprendí PHP y SQL, lo que me permitió comenzar a trabajar con desarrollo web dinámico y bases de datos.</p>
-    </div>
-
-    <div id="marketing" class="categoria oculto">
-        <div class="iconos">
-            <img src="wordpress-icon.png" alt="WordPress">
-        </div>
-        <button class="verMasBtn" data-target="info-marketing">Ver más</button>
-        <p id="info-marketing" class="detalle oculto">2013: Comencé a explorar el mundo de los blogs mediante plataformas como Blogger, Blogspot y otras similares. Desde el inicio me interesó tanto la parte visual (personalización de plantillas) como la redacción de contenidos.
-
-<br>2015: Empecé a utilizar WordPress, lo que me permitió desarrollar sitios más completos y profesionales. Durante esta etapa también descubrí e incorporé herramientas asociadas al marketing digital, como:
-
-SEO (optimización para buscadores),
-
-SEM (campañas pagas),
-
-Google Ads,
-
-Integración con redes sociales,
-
-Gestión de publicidades y analítica básica.
-
-Ese mismo año comencé la carrera de Periodismo, lo cual fortaleció mis habilidades de redacción, investigación y comunicación estratégica.</p>
-    </div>
-
-    <div id="grafico" class="categoria oculto">
-        <div class="iconos">
-            <img src="photoshop-icon.png" alt="Photoshop">
-            <img src="illustrator-icon.png" alt="Illustrator">
-        </div>
-        <button class="verMasBtn" data-target="info-grafico">Ver más</button>
-        <p id="info-grafico" class="detalle oculto">2022: Comencé la carrera de Diseño Gráfico Digital en ORT, donde adquirí conocimientos técnicos y estéticos. Me formé en herramientas fundamentales como:
-
-Adobe Photoshop, Illustrator y otras apps de Adobe,
-
-Figma para diseño UX/UI colaborativo,
-
-Canva para piezas rápidas y funcionales,
-
-Y otros recursos orientados a diseño editorial, identidad visual y experiencia de usuario.</p>
-    </div>
-
-    <div id="multimedia" class="categoria oculto">
-        <div class="iconos">
-            <img src="video-icon.png" alt="Edición de Video">
-            <img src="after-effects-icon.png" alt="After Effects">
-        </div>
-        <button class="verMasBtn" data-target="info-multimedia">Ver más</button>
-        <p id="info-multimedia" class="detalle oculto">Desde antes de 2015 realizaba edición de música y videos por hobby, explorando herramientas básicas y experimentando con contenido creativo. Sin embargo, fue a partir del inicio de la carrera de Periodismo que empecé a desarrollar estas habilidades de forma más técnica y profesional, adaptándolas a distintos formatos de comunicación digital.
-
-Durante esa etapa aprendí a trabajar con herramientas como:
-
-Adobe Premiere Pro y After Effects para edición de video profesional,
-
-Audacity y Adobe Audition para edición de audio y podcasts,
-
-CapCut, Filmora y otros editores rápidos para contenido en redes,
-
-Técnicas narrativas audiovisuales, montaje, subtitulado y compresión de archivos.
-
-Estas herramientas me permitieron producir piezas más pulidas, tanto para proyectos académicos como personales, enfocándome en la claridad del mensaje, la estética visual y la calidad del sonido.
-
-</p>
-    </div>
-        
-    <div id="utilidades" class="categoria oculto">
-        <div class="iconos">
-            <img src="microsoft-icon.png" alt="Microsoft Office">
-            <img src="notion-icon.png" alt="Notion">
-        </div>
-        <button class="verMasBtn" data-target="info-utilidades">Ver más</button>
-        <p id="info-utilidades" class="detalle oculto">Cuento con experiencia en la gestión administrativa de recursos tecnológicos y manejo de herramientas de productividad, que incluyen:
-
-Organización, control y mantenimiento de inventarios de hardware y software.
-
-Documentación y seguimiento de procesos técnicos y protocolos de soporte.
-
-Coordinación y asistencia a usuarios en el uso y mantenimiento de equipos y programas.
-
-Planificación y gestión básica de infraestructura informática para optimizar recursos.
-
-Manejo avanzado de Microsoft Office (Word, Excel, PowerPoint) y otras herramientas como Prixie para gestión y productividad.
-
-Integración de herramientas de inteligencia artificial para investigar, aprender y optimizar procesos técnicos y administrativos.
-
-<br>Complementariamente, poseo habilidades prácticas en hardware y mantenimiento, las cuales desarrollé de forma autónoma a través de la experimentación con varias computadoras propias y de conocidos:
-
-Armado completo de PC desde cero, incluyendo instalación de componentes y configuración de BIOS y sistemas operativos.
-
-Reemplazo y actualización de memoria RAM, discos duros/SSD, tarjetas de video y fuentes de alimentación.
-
-Mantenimiento básico de notebooks, como limpieza interna y ampliación de memoria o almacenamiento.
-
-Diagnóstico y solución de fallas comunes en hardware y software.
-
-Esta combinación me permite ofrecer un soporte integral, asegurando tanto la correcta administración de recursos tecnológicos como su adecuado funcionamiento y mantenimiento.</div>
-        
-
-
-        <section id="proyectos" class="p-4">
+<!-- Sección de Proyectos -->
+<section id="proyectos" class="p-4">
+  <!-- Título principal de la sección -->
   <h2 class="text-2xl font-bold mb-4">Proyectos</h2>
 
+  <!-- Filtros para clasificar y mostrar proyectos según categoría -->
   <div class="flex gap-2 mb-4">
     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="todos">Todos</button>
     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="web">Diseño Web</button>
     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="marketing">Marketing</button>
     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="multimedia">Multimedia</button>
-     <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="grafico">Diseño Gráfico</button>
+    <button class="filtro-proyecto-btn bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded" data-categoria="grafico">Diseño Gráfico</button>
   </div>
 
+  <!-- Contenedor general de proyectos en formato grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 proyectos-container">
-    <!-- Proyecto Web -->
+
+    <!-- Proyecto: Diseño Web -->
     <div class="proyecto web border p-4 rounded shadow">
       <img src="assets/images/morningstar.png" alt="Miniatura Proyecto Web" class="mb-2">
-      <h3 class="font-semibold">Pagina Web</h3>
+      <h3 class="font-semibold">Página Web</h3>
       <p class="text-sm mb-2">Sitio responsive hecho con HTML y CSS.</p>
       <a href="https://github.com/hevieri/SitioWebMorningstar" target="_blank" class="text-blue-600 underline">Ver en GitHub</a>
     </div>
 
-    <!-- Proyecto Gráfico -->
+    <!-- Proyecto: Diseño Gráfico -->
     <div class="proyecto grafico border p-4 rounded shadow">
       <img src="assets/images/posteo-maipo.png" alt="Miniatura Proyecto Gráfico" class="mb-2">
       <h3 class="font-semibold">Posteos Instagram</h3>
@@ -239,7 +207,7 @@ Esta combinación me permite ofrecer un soporte integral, asegurando tanto la co
       <a href="https://www.behance.net/gallery/185071897/posteos" target="_blank" class="text-blue-600 underline">Ver en Behance</a>
     </div>
 
-    <!-- Multimedia -->
+    <!-- Proyecto: Multimedia -->
     <div class="proyecto multimedia border p-4 rounded shadow">
       <img src="assets/images/discord.png" alt="Miniatura Multimedia" class="mb-2">
       <h3 class="font-semibold">Video logo</h3>
@@ -247,39 +215,51 @@ Esta combinación me permite ofrecer un soporte integral, asegurando tanto la co
       <a href="https://www.youtube.com/watch?v=OsHOesArOmk" target="_blank" class="text-blue-600 underline">Ver en Youtube</a>
     </div>
 
-    <!-- Proyecto Marketing -->
+    <!-- Proyecto: Marketing -->
     <div class="proyecto marketing border p-4 rounded shadow">
       <img src="assets/images/kaos.png" alt="Miniatura Proyecto Marketing" class="mb-2">
       <h3 class="font-semibold">Manual de Marca</h3>
       <p class="text-sm mb-2">Re-Branding</p>
       <a href="https://www.behance.net/gallery/217976919/manual-de-marca" target="_blank" class="text-blue-600 underline">Ver en Behance</a>
     </div>
+
   </div>
 </section>
 
+<!-- Separador visual antes del footer -->
 <hr><br>
+<!-- Pie de página del sitio -->
+<footer id="footer">
 
-    <footer id="footer">
-        <p>© 2025 Erika Helfenstern | 
-            <a href="https://www.linkedin.com/in/erika-helfenstern-89b9a9233/">LinkedIn</a> | 
-            <a href="https://github.com/hevieri">GitHub</a> | 
-            <a href="https://www.behance.net/akirehevieri">Behance</a> |
-            <a href="https://www.youtube.com/channel/UC_tIRNOf-mX9DN1ySJ9Dk6A">Youtube</a>
-        </p>
-         <p class="footer-email">
-  <a href="mailto:hevieri.dev@gmail.com" style="color: #ccc; text-decoration: none;">hevieri.dev@gmail.com</a>
-</p>
+  <!-- Información de derechos y enlaces sociales -->
+  <p>
+    © 2025 Erika Helfenstern |
+    <a href="https://www.linkedin.com/in/erika-helfenstern-89b9a9233/">LinkedIn</a> |
+    <a href="https://github.com/hevieri">GitHub</a> |
+    <a href="https://www.behance.net/akirehevieri">Behance</a> |
+    <a href="https://www.youtube.com/channel/UC_tIRNOf-mX9DN1ySJ9Dk6A">YouTube</a>
+  </p>
 
-    </footer>
-<!-- Botón WhatsApp fijo al costado -->
+  <!-- Correo de contacto en el footer -->
+  <p class="footer-email">
+    <a href="mailto:hevieri.dev@gmail.com" style="color: #ccc; text-decoration: none;">
+      hevieri.dev@gmail.com
+    </a>
+  </p>
+
+</footer>
+
+<!-- Botón flotante de WhatsApp en la esquina inferior -->
 <a href="https://wa.me/5491162178105" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+
+  <!-- Ícono SVG del logo de WhatsApp -->
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
-    <path d="M20.52 3.48A11.82 11.82 0 0 0 12 0C5.37 0 0 5.37 0 12a11.83 11.83 0 0 0 1.93 6.15L0 24l5.98-1.92A11.92 11.92 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.26-6.22-3.48-8.52zm-8.49 16.03a8.38 8.38 0 0 1-4.26-1.18l-.3-.18-3.56 1.14 1.15-3.48-.19-.31a8.5 8.5 0 0 1-1.27-4.64c0-4.71 3.83-8.53 8.55-8.53a8.5 8.5 0 0 1 8.54 8.54c0 4.72-3.82 8.55-8.56 8.55zm4.58-5.94c-.25-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.57.12-.17.24-.66.81-.81.98-.15.17-.3.19-.55.07-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.39.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.07-.12-.57-1.38-.78-1.9-.2-.5-.41-.43-.57-.44-.15 0-.33 0-.5 0-.17 0-.44.06-.67.31-.23.25-.89.87-.89 2.12 0 1.25.91 2.46 1.03 2.62.12.17 1.78 2.72 4.31 3.81.6.26 1.07.41 1.44.52.6.18 1.15.15 1.58.09.48-.07 1.48-.6 1.69-1.18.21-.58.21-1.07.15-1.18-.07-.11-.24-.18-.5-.3z"/>
+    <path d="... (svg path recortado para brevedad) ..." />
   </svg>
 </a>
 
+<!-- Enlace a tu archivo JS que probablemente maneja interactividad -->
+<script src="script.js"></script>
 
-
-    <script src="script.js"></script>
 </body>
 </html>

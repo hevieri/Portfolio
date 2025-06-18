@@ -1,454 +1,522 @@
-/* General */
+/* ========== 🌱 RESET & VARIABLES ========== */
+:root {
+  --primary-blue: hsl(189, 100%, 50%);
+  --primary-green: #25D366;
+  --text-color-light: #333;
+  --text-color-dark: #f0f0f0;
+
+  --button-default-light-bg: #eee;
+  --button-default-dark-bg: #444;
+  --button-default-dark-text: #333;
+  --button-default-light-text: #f0f0f0;
+
+  --border-light: #ccc;
+  --border-dark: #666;
+
+  --button-padding: 10px 22px;
+  --button-font-size: 0.95rem;
+  --button-border-radius: 20px;
+  --button-border-width: 1px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== 🌐 BASE GENERAL ========== */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;    
-    transition: background 0.3s, color 0.3s;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la pantalla */
-    margin: 0;
- 
+  background: linear-gradient(135deg, #d6e4f0, #e0c3fc);
+  color: #1a1a1a;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+section {
+  padding: 40px 20px;
+  margin-bottom: 60px;
   
 }
-.dark-mode {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+
+/* Separación general entre bloques internos */
+.categoria,
+.seccion-sobre-mi {
+  margin-top: 30px;
+  padding: 25px;
 }
 
-.dark-mode {
-    background: #333;
-    color: white;
-}
-
-/* Botón de modo oscuro */
-header {
-    margin-top: 25px;
-     display: flex;
-    flex-direction: column; /* Ubica los elementos en columna */  
-    align-items: center; /* Centra verticalmente */
-    padding: 10px; /* Espaciado interno */
-    padding-top: 20px; /* Agrega espacio arriba */
-    
-}
-
-
-#dark-mode-toggle {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-
-/* Menú */
-#menu {
-    position: sticky;
-    top: 0;
-    background: #444;
-    padding: 10px;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Secciones */
-section {
-    padding: 20px;
-}
-
-/* Habilidades */
-.habilidades-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.habilidad img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-
-/* Proyectos */
-
-.proyectos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cards más pequeñas */
-    gap: 20px;
-    padding: 30px 15px; /* Menos espacio alrededor */
-    justify-content: center;
-    perspective: 1000px; /* Agregamos perspectiva 3D */
-}
-
-
-
-.proyecto {
-    background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 100, 255, 0.4)); 
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-    transform-style: preserve-3d;
-    max-width: 350px; /* Limita el ancho de la card para que no crezca demasiado */
-    margin: auto; /* Centra la card cuando hay pocas */
-}
-
-
-
-
-.proyecto:hover {
-    transform: rotateY(10deg) translateY(-5px) scale(1.05);
-    box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.3);
-    filter: brightness(1.2);
-}
-
-
-.proyecto img {
-    width: 100%;
-    max-width: 800px; /* Evita que se agranden demasiado */
-    height: auto; /* Ajusta la altura para evitar distorsión */
-    aspect-ratio: 16 / 9; /* Mantiene proporción */
-    object-fit: cover; /* Asegura que no se vea pixelada */
-    border-radius: 10px;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
-}
-
-
-.proyecto:hover img {
-    transform: scale(1.1) rotate(-2deg);
-}
-
-/* 🔹 Mejor jerarquía visual */
-
-.proyecto h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-   
-}
-
-.proyecto p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.3; /* Ajuste fino en la separación entre líneas */
-}
-
-
-/* 🔹 Links animados */
-.proyecto a {
-    color: #00ffea;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: #00d4ff;
-    transition: color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.proyecto a:hover {
-    color: #1ebe57;
-    transform: scale(1.1);
-}
-
-
-
-
-
-
-/* Animación de aparición */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.filtro-proyecto-btn {
-    background: var(--primary-blue);
-    color: white;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease;
-}
-
-.filtro-proyecto-btn:hover {
-    background: var(--primary-green);
-    transform: scale(1.05);
-}
-
-.filtro-proyecto-btn.activo {
-    background: #007BFF; /* Resalta el filtro seleccionado */
-}
-.dark-mode .proyecto {
-    background: #444;
-    color: white;
-}
-
-/* Texto oculto */
 .hidden {
-    display: none;
+  display: none;
+}
+
+.oculto {
+  display: none;
 }
 
 
-
-
-/* Botones */
-button {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
+h1, h2, h3 {
+  color: #3b2f63;
+  font-weight: bold;
 }
 
-
-
-/* Responsivo */
-@media screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .habilidades-grid {
-        justify-content: center;
-    }
-
-    button {
-        width: 100%;
-        max-width: 300px;
-        margin: 10px auto;
-    }
+a {
+  color: #6c5ce7;
+  text-decoration: none;
 }
-
-
-.filtros {
-    margin: 20px 0;
+a:hover {
+  text-decoration: underline;
+  color: #3b2f63;
 }
-
-.filtro-btn {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-
-.habilidad {
-    display: none; /* Ocultas todas por defecto, luego el JS las muestra */
-}
-
 
 button {
-    color: white;
-    border: var(--button-border-width) solid var(--border-light);
-    padding: var(--button-padding);
-    cursor: pointer;
-    border-radius: var(--button-border-radius);
-    font-size: var(--button-font-size);
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
-    outline: none;
-    margin: 5px;
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+button:hover {
+  background-color: #a29bfe;
+  transform: scale(1.05);
+}
+
+
+.verMasBtn {
+  margin-top: 20px; /* igual que los botones superiores */
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.verMasBtn:hover {
+  background-color: #a29bfe;
+  transform: scale(1.05);
+}
+
+/* ========== ESTILOS ========== */
+.categoria,
+.seccion-sobre-mi,
+.detalle {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-mode .categoria,
+body.dark-mode .seccion-sobre-mi,
+body.dark-mode .detalle {
+  background-color: rgba(50, 50, 70, 0.4);
+  border: 1px solid #555;
+}
+.categoria,
+.seccion-sobre-mi {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 0.6s ease-out forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #3b2f63;
+}
+
+body.dark-mode h2, 
+body.dark-mode h3 {
+  color: #dcd6f7;
+}
+
+.detalle {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 15px;
+  color: #222;
+}
+
+body.dark-mode .detalle {
+  color: #ddd;
+}
+
+
+/* ========== 🌘 MODO OSCURO ========== */
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1f2e, #2c2c3e);
+  color: #e2e2f2;
+}
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode a {
+  color: #dcd6f7;
+}
+
+body.dark-mode button {
+  background-color: #493a9c;
+  color: #eae7f5;
+  border: 1px solid #a29bfe;
+  box-shadow: 0 2px 6px rgba(156, 150, 246, 0.2);
+}
+body.dark-mode button:hover {
+  background-color: #7d72d9;
+  border-color: #d6ccfc;
+  color: #fff;
+}
+
+/* 🌞🌙 BOTÓN DE CAMBIO DE MODO */
+#dark-mode-toggle {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+body.dark-mode #dark-mode-toggle {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+/* ========== 🧱 HEADER ========== */
+header {
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header-linea {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.header-linea h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ✏️ INPUT ANIMADO */
+.input-container {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.input {
+  width: 100%;
+  max-width: 440px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 8px 16px;
+  
+  background-color: #f6f3ff;
+  color: #3b2f63;
+  border: 2px solid #6c5ce7;
+  box-shadow: 4px 4px 0 #6c5ce7;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #a29bfe;
+  box-shadow: 0 0 0 3px rgba(162, 155, 254, 0.3);
+}
+
+
+body.dark-mode .input {
+  background-color: #2d2d44;
+  color: #fff;
+  border-color: #9c96f6;
+  box-shadow: 4px 4px 0 #6a67ce;
+}
+
+/* ========== 📑 MENÚ NAV ========== */
+#menu {
+  display: none;
+  position: sticky;
+  top: 0;  
+  padding: 10px;
+  z-index: 1000;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+#menu.active {
+  max-height: 500px;
+  display: block;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: var(--primary-blue);
+}
+
+/* ========== 💬 SOBRE MÍ ========== */
+#rasgos-generales {
+  margin-bottom: 60px;
+}
+.cuadricula-rasgos {
+  display: grid;
+  grid-template
+}
+/* ========== ⚙️ HABILIDADES TÉCNICAS ========== */
+button {
+  background-color: var(--button-default-light-bg);
+  color: var(--button-default-dark-text);
+  border: var(--button-border-width) solid var(--border-light);
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
+  font-size: var(--button-font-size);
+  font-weight: 500;
+  margin: 5px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
 }
 
 button:active {
-    
-    color: white;
-    transform: translateY(0);
-    box-shadow: none;
-    border-color: var(--primary-green);
+  background-color: var(--primary-green);
+  transform: translateY(0);
 }
 
-  .whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+body.dark-mode button {
+  background-color: var(--button-default-dark-bg);
+  color: var(--button-default-light-text);
+  border-color: var(--border-dark);
+}
+
+body.dark-mode button:hover {
+  background-color: var(--primary-blue);
+}
+
+body.dark-mode button:active {
+  background-color: var(--primary-green);
+}
+
+/* Detalles de categoría */
+.iconos {
   display: flex;
-  justify-content: center; /* centra horizontal */
-  align-items: center;     /* centra vertical */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  background-color: #1ebe57;
-  cursor: pointer;
-}
-
-.whatsapp-float svg {
-  fill: white;
-  width: 32px;
-  height: 32px;
-  display: block; /* Esto ayuda a evitar espacios extra */
-}
-.footer-email {
-  margin-top: 0.5rem;  /* separación */
-  font-size: 0.9rem;
-  color: #ccc;         /* un gris claro */
-  text-align: center;  /* centrado */
-}
-
-
-
-#descripcionBloque {
-  transition: max-height 0.5s ease-in-out;
-  overflow: hidden;
-}
-
-#descripcionTexto {
-  transition: opacity 0.5s ease-in-out;
-}
-
-
-.habilidades-grid {
-  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content: center;
-  margin-top: 15px;
+  z-index: 2;
 }
-
-.habilidad {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.habilidad img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-
-
-
-
-.oculto {
-    display: none;
-}
-
-.categoria {
-    margin-top: 15px;
-}
-
-.iconos {
-    display: flex;
-    justify-content: center; /* Centra los íconos */
-    gap: 15px; /* Espacio entre íconos */
-    flex-wrap: wrap; /* Evita que se desborden */
-    width: 100%; /* Asegura que ocupen todo el ancho del contenedor */
-    position: relative; /* Evita que se "salgan" del cuerpo */
-    z-index: 2; /* Asegura que estén por encima del fondo */
-}
-
-img {
-    width: 50px;
-}
-
 
 .detalle {
   font-size: 16px;
   color: #333;
-  font-weight: 400; /* menos negrita, normal */
-  max-width: 600px; /* ancho máximo para que no sea muy ancho */
-  margin: 10px auto 0 auto; /* margen arriba y centrado horizontalmente */
-  line-height: 1.6; /* para mejorar la lectura */
-  text-align: center; /* si querés que esté centrado */
-  font-family: Arial, sans-serif; /* una fuente legible */
+  font-weight: 400;
+  max-width: 600px;
+  margin: 10px auto;
+  line-height: 1.6;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-/* El boton que escribe */
+.oculto {
+  display: none;
+}
 
+/* 🎯 CONTENEDOR GENERAL DE PROYECTOS */
+#proyectos {
+  padding: 60px 20px;
+}
 
-.input-container {
+/* BOTONES DE FILTRO */
+.filtro-proyecto-btn {
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filtro-proyecto-btn:hover {
+  transform: scale(1.05);
+}
+
+.filtro-proyecto-btn:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* CONTENEDOR GRID DE PROYECTOS */
+.proyectos-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   justify-items: center;
-  margin: 20px 0 10px 0; /* Menos espacio arriba y abajo */
+  padding-top: 30px;
 }
 
-/* Estilos ajustados */
-.input {
-    min-width: 440px; /* Asegura suficiente espacio */
-    width: auto; /* Se ajusta automáticamente al contenido */
-    height: auto; /* Evita que el contenido se corte */
-    padding: 8px; /* Más espacio interno */
-    font-size: 13px;
-    font-family: "Courier New", monospace;
-    color: #000;
-    background-color: #fff;
-    border: 2px solid #000;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 4px 4px 0 #000;
-    text-align: center;
-    white-space: nowrap; /* Evitamos saltos de línea */
-    overflow: visible; /* Mostramos todo el contenido */
+/* TARJETA DE PROYECTO */
+.proyecto {
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+  max-width: 360px;
+  width: 100%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Ajuste de la animación para evitar cortes */
-.input::before {
-    content: "Diseño Gráfico Digital | Desarrollo Web | Marketing";
-    display: inline-block;
-    width: auto;
-    text-align: center;
-    overflow: visible;
-    animation: scrollText 12s linear infinite; /* Asegura que el texto se desplace */
+.proyecto:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* MINIATURA DE PROYECTO */
+.proyecto img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* TEXTOS DEL PROYECTO */
+.proyecto h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #f1f5f9;
+}
+
+.proyecto p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
+
+/* ENLACE A PROYECTO */
+.proyecto a {
+  font-size: 0.9rem;
+  color: #38bdf8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.proyecto a:hover {
+  color: white;
+}
+
+/* ========== 📩 FOOTER & SEPARADORES ========== */
+footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
 }
 
 
+footer a:hover {
+  text-decoration: underline;
+  color: var(--primary-blue);
+}
 
-/* Animación de desplazamiento */
+.footer-email {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  width: 100%;
+}
+
+ /*📏 SEPARADOR GENERAL */
+hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 40px auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+body.dark-mode hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 🎞️ ANIMACIONES ========== */
+
 @keyframes scrollText {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
-
-
-/* Animación de sacudida */
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px) rotate(-3deg); }
@@ -461,318 +529,72 @@ img {
   animation: shake 0.4s ease-in-out;
 }
 
-/*Sombras elegantes*/
-.proyecto {
-    border: 1px solid #eee; /* Un borde sutil */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra más suave */
-}
-.dark-mode .proyecto {
-    border: 1px solid #555;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.cuadro { /* Para los rasgos generales */
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 100, 255, 0.4)); 
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-    transform-style: preserve-3d;
-    
-}
-
-.cuadro {
-    color: white !important; /* Forzamos el color si hay otras reglas afectándolo */
-    
-}
-
-.dark-mode .cuadro {
-    border: 1px solid #555;
-}
-
-nav ul li a:hover,
-.btn-sobre-mi.activo,
-.filtro-proyecto-btn.activo {
-    color: hsl(189, 100%, 35%); /* Una versión un poco más oscura para el hover */
-}
-nav ul li a {
-    color: #e0e0e0; /* Blanco roto para los enlaces del menú */
-}
-nav ul li a:hover {
-    color: hsl(189, 100%, 50%); /* Color de acento para el hover */
-}
-.proyecto a { /* Para los enlaces de GitHub/Behance en proyectos */
-    color: hsl(189, 100%, 50%);
-}
-.whatsapp-float {
-    background-color: hsl(189, 100%, 50%); /* O el verde WhatsApp original si preferís */
-}
-
-section {
-    padding: 40px 20px; /* Más padding para separar secciones */
-}
-h1, h2, h3 {
-    margin-bottom: 25px; /* Espacio debajo de los títulos */
-}
-p {
-    line-height: 1.7; /* Mayor interlineado para mejor lectura */
-    margin-bottom: 1em; /* Espacio entre párrafos */
-}
-body.dark-mode .iconos img {
-    filter: invert(1); /* Invierte los colores de las imágenes si son oscuras en fondo claro */
-}
-
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    padding: 20px;
-    width: 100%; /* Hace que ocupe todo el ancho */
-    display: flex;
-    flex-direction: column; /* Mantiene los elementos en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Centra los elementos verticalmente si hay espacio */
-    position: relative;
-}
-
-
-
-footer p {
-    margin: 5px 0; /* Un poco de margen entre los párrafos del footer */
-}
-
-footer a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    color: hsl(189, 100%, 50%);
-}
-
-.footer-email {
-    /* Si quieres el email justo debajo del texto principal y centrado: */
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #ccc;
-    /* text-align: center; Esto ya no es necesario si el padre es flex con align-items: center */
-    width: 100%; /* Asegura que ocupe todo el ancho para centrar su propio texto */
-}
-
-
-
-hr {
-    
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Una línea sutil y blanca */
-    margin: 40px auto; /* Centra la línea y dale espacio arriba y abajo */
-    width: 80%; /* Ancho de la línea */
-    max-width: 800px; /* Ancho máximo para que no sea muy larga */
-}
-
-/* En modo oscuro, ajustamos la línea */
-body.dark-mode hr {
-    border-top: 1px solid rgba(0, 0, 0, 0.2); /* En modo oscuro, puede ser más oscura */
-}
-
-
-header {
-    padding: 20px 10px; /* Ajusta el padding si lo necesitas */
-    display: flex; /* Lo convierto a flex para mejor control */
-    justify-content: center; /* Centra el contenido principal (h1) */
-    align-items: center; /* Centra verticalmente */
-    position: relative; /* Mantiene la posición del botón */
-}
-
-header h1 {
-    margin: 0; /* Remueve el margen por defecto del h1 para centrarlo con flex */
-}
-
-/* Si quieres que el botón de dark mode se adapte mejor en pantallas pequeñas */
+/* ========== 📱 MEDIA QUERY: Mobile (max-width: 768px) ========== */
 @media screen and (max-width: 768px) {
-    #dark-mode-toggle {
-        /* Para pantallas pequeñas, podrías moverlo o reducir su tamaño */
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
-        width: 35px;
-        height: 35px;
-    }
+  nav ul {
+    flex-direction: column;
+  }
 
-    footer {
-        padding: 15px; /* Menos padding en móviles */
-    }
+  nav ul li {
+    margin: 10px 0;
+  }
 
-    hr {
-        width: 90%; /* Más ancho en móviles */
-    }
-}
+  .proyectos-container,
+  .habilidades-grid,
+  .habilidades-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 10px;
+    gap: 15px;
+  }
 
-:root {
-    /* ... (tus otras variables de colores y estilos generales) ... */
-    --primary-blue: hsl(189, 100%, 50%);
-    --primary-green: #25D366;
-    --text-color-light: #333;
-    --text-color-dark: #f0f0f0;
-    --button-default-light-bg: #eee;
-    --button-default-dark-text: #333;
-    --button-default-dark-bg: #444;
-    --button-default-light-text: #f0f0f0;
-    --border-light: #ccc;
-    --border-dark: #666;
+  .proyecto,
+  .habilidad {
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 12px;
+    margin: 0 auto;
+  }
 
-    /* Estilos de botones uniformes (usados por la regla 'button' general) */
-    --button-padding: 10px 22px;
-    --button-font-size: 0.95rem;
-    --button-border-radius: 20px;
-    --button-border-width: 1px;
-}
-
-/* Base de estilos de botones (asegúrate de que esta regla esté presente en tu CSS) */
-button {
-    background-color: var(--button-default-light-bg);
-    color: var(--button-default-dark-text);
-    border: var(--button-border-width) solid var(--border-light);
-    padding: var(--button-padding);
-    cursor: pointer;
-    border-radius: var(--button-border-radius);
-    font-size: var(--button-font-size);
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease, border-color 0.3s ease;
-    outline: none;
+  button {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    width: calc(50% - 10px);
     margin: 5px;
-}
+  }
 
-/* Estilos de hover y active para el botón general (estos SÍ usan el azul y el verde) */
-button:hover {
-    background-color: hsl(189, 100%, 50%);;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-blue);
-}
-
-button:active {
-    background-color: var(--primary-green);
-    color: white;
-    transform: translateY(0);
-    box-shadow: none;
-    border-color: var(--primary-green);
-}
-
-/* Modo oscuro para la base de botones */
-body.dark-mode button {
-    background-color: var(--button-default-dark-bg);
-    color: var(--button-default-light-text);
-    border: var(--button-border-width) solid var(--border-dark);
-}
-
-body.dark-mode button:hover {
-    background-color: hsl(189, 100%, 50%);
-    color: white;
-    border-color: var(--primary-blue);
-}
-
-body.dark-mode button:active {
-    background-color: var(--primary-green);
-    color: white;
-    border-color: var(--primary-green);
-}
-
-
-/* Contenedor de botones "Sobre mí" */
-.botones-sobre-mi {
-    margin-top: 20px;
+  .botones-sobre-mi,
+  .filtros {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-}
+    justify-content: space-between;
+  }
 
-/* Estilo para los botones dentro de .botones-sobre-mi (Educación, Experiencia, Cursos) */
-.botones-sobre-mi button {
-    /* Aquí se aseguran los estilos neutrales y sobrescriben cualquier azul anterior */
-    background-color: var(--button-default-light-bg) !important;
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    margin: 5px; /* Unifica el margen */
-}
+  #dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+  }
 
-/* Estado de HOVER para los botones "Sobre mí" (NEUTRAL) */
-.botones-sobre-mi button:hover {
-    background-color: var(--neutral-medium-light) !important;
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
-    transform: translateY(-2px) !important;
-}
-
-/* Estado ACTIVO (seleccionado) para los botones "Sobre mí" (NEUTRAL) */
-.btn-sobre-mi.activo {
-    background-color: var(--button-default-light-bg) !important;
-    color: var(--button-default-dark-text) !important;
-    border-color: var(--border-light) !important;
-    font-weight: 600 !important;
-    box-shadow: none !important;
-    transform: translateY(0) !important;
-}
-
-/* --- Adaptación al Modo Oscuro para los botones "Sobre mí" --- */
-body.dark-mode .botones-sobre-mi button {
-    background-color: var(--button-default-dark-bg) !important;
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
-}
-
-body.dark-mode .botones-sobre-mi button:hover {
-    background-color: #555 !important;
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
-}
-
-body.dark-mode .btn-sobre-mi.activo {
-    background-color: var(--button-default-dark-bg) !important;
-    color: var(--button-default-light-text) !important;
-    border-color: var(--border-dark) !important;
-}
-
-/* --- ESTILO PARA LOS CUADROS DE RASGOS (Restaurado a como lo tenías) --- */
-#rasgos-generales {
-    margin-bottom: 60px; /* o el valor que te guste para la distancia */
-}
-
-.cuadricula-rasgos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 15px; /* Espacio entre los cuadros */
-    margin-top: 15px;
-     max-width: 1000px; /* Ancho máximo para el contenido principal */
-    margin: 0 auto; /* Centrar el contenido */
-    padding: 20px; /* Espaciado interno general */
-}
-
-
-.cuadro {
-    background-color: #f0f0f0; /* Color claro por defecto */
-    color: #333;
+  footer {
     padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  hr {
+    width: 90%;
+  }
+}
+/* 🧱 HEADER en pantallas chicas */
+.header-linea {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Adaptación al Modo Oscuro para los cuadros */
-body.dark-mode .cuadro {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-/* Responsive: 1 columna en pantallas chicas */
-@media (max-width: 600px) {
-    .cuadricula-rasgos {
-        grid-template-columns: 1fr;
-    }
+/* 👉 Que el input no sea más ancho que el dispositivo */
+.input {
+  width: 100%;
+  max-width: 440px;
+  font-size: 12px;
 }
